@@ -1473,16 +1473,16 @@
 <span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+<span class="normal"><a href="#__codelineno-2-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  &lt;PropertyGroup&gt;
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    &lt;OutputType&gt;Exe&lt;/OutputType&gt;
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    &lt;Nullable&gt;enable&lt;/Nullable&gt;
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>  &lt;/PropertyGroup&gt;
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a>&lt;/Project&gt;
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 4 : le projet produit un exécutable ;</li>
@@ -1585,15 +1585,15 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>Personne p1;
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>p1.prenom = "Jean";
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>p1.nom = "Dupont";
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>p1.age = 30;
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">Personne</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">p1</span><span class="p">.</span><span class="n">prenom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Jean"</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">p1</span><span class="p">.</span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Dupont"</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">p1</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>sont illégales. Il nous faut initialiser un objet de type <em>[Personne]</em> via une méthode publique. C&#x27;est le rôle de la méthode <em>[Initialise]</em>. On écrira :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>Personne p1;
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>p1.Initialise("Jean", "Dupont", 30);
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">Personne</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">p1</span><span class="p">.</span><span class="n">Initialise</span><span class="p">(</span><span class="s">"Jean"</span><span class="p">,</span><span class="w"> </span><span class="s">"Dupont"</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>L&#x27;écriture <strong><em>[p1.Initialise]</em></strong> est légale car <em>[Initialise]</em> est d&#x27;accès public.</p>
 <h3 id="415-loperateur-new">4.1.5. <span style="color: #1f4d78">L&#x27;opérateur new</span></h3>
@@ -1602,11 +1602,11 @@
 </code></pre></div></td></tr></table></div>
 <p>déclare <em>[p1]</em> comme une référence à un objet de type <em>[Personne]</em>. Cet objet n&#x27;existe pas encore et donc <em>[p1]</em> n&#x27;est pas initialisé. Lorsqu&#x27;on écrit ensuite <strong><em>[p1.Initialise(&quot;Jean&quot;, &quot;Dupont&quot;, 30)]</em></strong>, on fait appel à la méthode <em>[Initialise]</em> de l&#x27;objet référencé par <em>[p1]</em>. Or cet objet n&#x27;existe pas et le compilateur signale l&#x27;erreur : la variable locale <em>[p1]</em> n&#x27;a pas reçu de valeur. Si on écrit :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>Personne? p1 = null;
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a>p1.Initialise("Jean", "Dupont", 30);
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">Personne</span><span class="o">?</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">p1</span><span class="p">.</span><span class="n">Initialise</span><span class="p">(</span><span class="s">"Jean"</span><span class="p">,</span><span class="w"> </span><span class="s">"Dupont"</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>on indique explicitement avec le mot clé <em>[null]</em> que la variable <em>[p1]</em> ne référence encore aucun objet (le point d&#x27;interrogation de <strong><em>[Personne?]</em></strong> indique que la variable a le droit de valoir <em>[null]</em>). Le compilateur se contente alors d&#x27;un avertissement (déréférencement d&#x27;une référence nulle) et, à l&#x27;exécution, l&#x27;appel de la méthode provoque une exception <em>[NullReferenceException]</em>. Pour que <em>[p1]</em> référence un objet, il faut écrire :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>Personne p1 = new Personne();
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">Personne</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Personne</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 <p>Cela a pour effet de créer un objet de type <em>[Personne]</em> non encore initialisé : ses champs ont leur valeur initiale, ici la chaîne vide pour <em>[nom]</em> et <em>[prenom]</em> et 0 pour <em>[age]</em> (un champ numérique sans valeur initiale explicite vaut 0, un champ de type référence <em>[null]</em>). Maintenant que <em>[p1]</em> référence un objet, l&#x27;instruction d&#x27;initialisation de cet objet <strong><em>[p1.Initialise(&quot;Jean&quot;, &quot;Dupont&quot;, 30)]</em></strong> est valide.</p>
 <h3 id="416-le-mot-cle-this">4.1.6. <span style="color: #1f4d78">Le mot clé this</span></h3>
@@ -1616,12 +1616,12 @@
 <span class="normal"><a href="#__codelineno-11-13">13</a></span>
 <span class="normal"><a href="#__codelineno-11-14">14</a></span>
 <span class="normal"><a href="#__codelineno-11-15">15</a></span>
-<span class="normal"><a href="#__codelineno-11-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-11" name="__codelineno-11-11"></a>    public void Initialise(string p, string n, int age)
-<a id="__codelineno-11-12" name="__codelineno-11-12"></a>    {
-<a id="__codelineno-11-13" name="__codelineno-11-13"></a>        this.prenom = p;
-<a id="__codelineno-11-14" name="__codelineno-11-14"></a>        this.nom = n;
-<a id="__codelineno-11-15" name="__codelineno-11-15"></a>        this.age = age;
-<a id="__codelineno-11-16" name="__codelineno-11-16"></a>    }
+<span class="normal"><a href="#__codelineno-11-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialise</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">prenom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>L&#x27;instruction <strong><em>[this.prenom = p]</em></strong> signifie que le champ <em>[prenom]</em> de l&#x27;objet courant (<em>[this]</em>) reçoit la valeur <em>[p]</em>. Le mot clé <em>[this]</em> désigne l&#x27;objet courant : celui sur lequel la méthode est exécutée. Comment le connaît-on ? Regardons comment se fait l&#x27;initialisation de l&#x27;objet référencé par <em>[p1]</em> dans le programme appelant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>p1.Initialise("Jean", "Dupont", 30);
@@ -1632,12 +1632,12 @@
 <span class="normal"><a href="#__codelineno-13-3">3</a></span>
 <span class="normal"><a href="#__codelineno-13-4">4</a></span>
 <span class="normal"><a href="#__codelineno-13-5">5</a></span>
-<span class="normal"><a href="#__codelineno-13-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>public void Initialise(string p, string n, int age)
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a>{
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    prenom = p;
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a>    nom = n;
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    this.age = age;
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a>}
+<span class="normal"><a href="#__codelineno-13-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Initialise</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="p">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">prenom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Lorsqu&#x27;une méthode d&#x27;un objet référence un champ <em>[A]</em> de cet objet, l&#x27;écriture <strong><em>[this.A]</em></strong> est implicite. On doit l&#x27;utiliser explicitement lorsqu&#x27;il y a conflit d&#x27;identificateurs. C&#x27;est le cas de l&#x27;instruction <strong><em>[this.age = age;]</em></strong> où <em>[age]</em> désigne à la fois un champ de l&#x27;objet courant et le paramètre <em>[age]</em> reçu par la méthode. Il faut alors lever l&#x27;ambiguïté en désignant le champ <em>[age]</em> par <strong><em>[this.age]</em></strong>.</p>
 <h3 id="417-un-programme-de-test">4.1.7. <span style="color: #1f4d78">Un programme de test</span></h3>
@@ -1764,14 +1764,14 @@
 <h3 id="4110-constructeurs-de-la-classe-personne">4.1.10. <span style="color: #1f4d78">Constructeurs de la classe Personne</span></h3>
 <p>Un constructeur est une méthode qui porte le nom de la classe et qui est appelée lors de la création de l&#x27;objet. On s&#x27;en sert généralement pour l&#x27;initialiser. C&#x27;est une méthode qui peut accepter des paramètres mais qui ne rend aucun résultat. Sa déclaration n&#x27;est précédée d&#x27;aucun type (pas même <em>[void]</em>).</p>
 <p>Si une classe <em>[C]</em> a un constructeur acceptant n paramètres, la déclaration et l&#x27;initialisation d&#x27;un objet de cette classe pourra se faire sous la forme :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>C objet = new C(arg1, arg2, ... argn);
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">C</span><span class="w"> </span><span class="n">objet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">argn</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>ou</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
 <span class="normal"><a href="#__codelineno-19-2">2</a></span>
-<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>C objet;
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a>...
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a>objet = new C(arg1, arg2, ... argn);
+<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">C</span><span class="w"> </span><span class="n">objet</span><span class="p">;</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="p">...</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">objet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">argn</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>Lorsqu&#x27;une classe <em>[C]</em> a un ou plusieurs constructeurs, l&#x27;un de ces constructeurs doit obligatoirement être utilisé pour créer un objet de cette classe. Si une classe <em>[C]</em> n&#x27;a aucun constructeur, elle en a un par défaut qui est le constructeur sans paramètres <strong><em>[public C()]</em></strong>. Les champs de l&#x27;objet gardent alors leurs valeurs initiales. C&#x27;est ce qui s&#x27;est passé dans les programmes précédents, où on avait écrit <strong><em>[new Personne()]</em></strong>.</p>
 <p>Le programme <em>[classes-02.cs]</em> donne trois constructeurs à la classe <em>[Personne]</em> :</p>
@@ -1986,7 +1986,7 @@
 <span class="normal"><a href="#__codelineno-25-2">2</a></span>
 <span class="normal"><a href="#__codelineno-25-3">3</a></span>
 <span class="normal"><a href="#__codelineno-25-4">4</a></span>
-<span class="normal"><a href="#__codelineno-25-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">&gt; </span><span class="ge">dotnet run classes-04.cs</span>
+<span class="normal"><a href="#__codelineno-25-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>&gt; dotnet run classes-04.cs
 <a id="__codelineno-25-2" name="__codelineno-25-2"></a>Dans fonction appelante avant appel : sb0=essai0, sb1=essai1, sb2=essai2
 <a id="__codelineno-25-3" name="__codelineno-25-3"></a>Début fonction appelée : sbf0=essai0, sbf1=essai1, sbf2=essai2
 <a id="__codelineno-25-4" name="__codelineno-25-4"></a>Fin fonction appelée : sbf0=essai0*****, sbf1=essai1*****, sbf2=essai2*****, sbf3=essai3*****
@@ -2208,11 +2208,11 @@
 <span class="normal"><a href="#__codelineno-30-2">2</a></span>
 <span class="normal"><a href="#__codelineno-30-3">3</a></span>
 <span class="normal"><a href="#__codelineno-30-4">4</a></span>
-<span class="normal"><a href="#__codelineno-30-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>public Type Propriété
-<a id="__codelineno-30-2" name="__codelineno-30-2"></a>{
-<a id="__codelineno-30-3" name="__codelineno-30-3"></a>    get { ... }
-<a id="__codelineno-30-4" name="__codelineno-30-4"></a>    set { ... }
-<a id="__codelineno-30-5" name="__codelineno-30-5"></a>}
+<span class="normal"><a href="#__codelineno-30-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">public</span><span class="w"> </span><span class="n">Type</span><span class="w"> </span><span class="n">Propriété</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="p">{</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="w">    </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="w">    </span><span class="k">set</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>où <em>[Type]</em> est en général le type du champ géré par la propriété. Elle peut avoir deux méthodes appelées <em>[get]</em> et <em>[set]</em>. La méthode <em>[get]</em> est habituellement chargée de rendre la valeur du champ qu&#x27;elle gère (elle pourrait rendre autre chose, rien ne l&#x27;empêche). La méthode <em>[set]</em> reçoit un paramètre appelé <em>[value]</em> qu&#x27;elle affecte normalement au champ qu&#x27;elle gère. Elle peut en profiter pour vérifier la validité de la valeur reçue et éventuellement lancer une exception si la valeur se révèle invalide.</p>
 <p>Considérons le programme <em>[classes-07.cs]</em> où les accesseurs et modifieurs précédents ont été remplacés par des propriétés en lecture et écriture :</p>
@@ -2415,16 +2415,16 @@
 <p>La ligne 4 des résultats montre que l&#x27;affectation <strong><em>[p.Age = -4]</em></strong> (ligne 8) a été refusée par la méthode <em>[set]</em> de la propriété <em>[Age]</em>.</p>
 <h3 id="4116-les-initialiseurs-dobjet">4.1.16. <span style="color: #1f4d78">Les initialiseurs d&#x27;objet</span></h3>
 <p>Les propriétés peuvent être utilisées conjointement avec un constructeur selon la syntaxe suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a>Classe objet = new Classe(...) { Propriété1 = val1, Propriété2 = val2, ... };
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="n">Classe</span><span class="w"> </span><span class="n">objet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Classe</span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Propriété1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val1</span><span class="p">,</span><span class="w"> </span><span class="n">Propriété2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 <p>Cette syntaxe, appelée <strong>initialiseur d&#x27;objet</strong>, est équivalente au code suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
 <span class="normal"><a href="#__codelineno-34-2">2</a></span>
 <span class="normal"><a href="#__codelineno-34-3">3</a></span>
-<span class="normal"><a href="#__codelineno-34-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a>Classe objet = new Classe(...);
-<a id="__codelineno-34-2" name="__codelineno-34-2"></a>objet.Propriété1 = val1;
-<a id="__codelineno-34-3" name="__codelineno-34-3"></a>objet.Propriété2 = val2;
-<a id="__codelineno-34-4" name="__codelineno-34-4"></a>...
+<span class="normal"><a href="#__codelineno-34-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="n">Classe</span><span class="w"> </span><span class="n">objet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Classe</span><span class="p">(...);</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">objet</span><span class="p">.</span><span class="n">Propriété1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val1</span><span class="p">;</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="n">objet</span><span class="p">.</span><span class="n">Propriété2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">val2</span><span class="p">;</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="p">...</span>
 </code></pre></div></td></tr></table></div>
 <p>L&#x27;ordre des propriétés n&#x27;importe pas. Dans le programme <em>[classes-07.cs]</em> précédent, la classe <em>[Personne]</em> a un constructeur sans paramètres qui n&#x27;initialise rien. Revenons à la fin du programme principal :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-14">14</a></span>
@@ -2452,10 +2452,10 @@
 <p>Ligne 15, le constructeur sans paramètres est utilisé pour créer une personne initialisée ensuite par ses propriétés. On aurait pu écrire <strong><em>[new Personne() { Age = 7, ... }]</em></strong>, mais les parenthèses du constructeur sans paramètres ne sont pas obligatoires dans cette syntaxe. Les méthodes <em>[set]</em> sont bien appelées : ligne 19, le nom formé d&#x27;un espace est refusé (ligne 6 des résultats).</p>
 <h3 id="4117-les-proprietes-automatiques">4.1.17. <span style="color: #1f4d78">Les propriétés automatiques</span></h3>
 <p>Dans beaucoup de cas, les méthodes <em>[get]</em> et <em>[set]</em> d&#x27;une propriété se contentent de lire et écrire un champ privé sans autre traitement. On peut alors utiliser une <strong>propriété automatique</strong> déclarée comme suit :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>public Type Propriété { get; set; }
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="k">public</span><span class="w"> </span><span class="n">Type</span><span class="w"> </span><span class="n">Propriété</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Le champ privé associé à la propriété n&#x27;est pas déclaré : il est automatiquement généré par le compilateur, et on n&#x27;y accède que via sa propriété. Ainsi, au lieu d&#x27;écrire le champ <em>[prenom]</em> et la propriété <em>[Prenom]</em> du programme <em>[classes-07.cs]</em>, on pourra écrire :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a>public string Prenom { get; set; } = "";
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Prenom</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>sans déclarer le champ privé <em>[prenom]</em>. L&#x27;expression <strong><em>[= &quot;&quot;]</em></strong> qui suit la propriété est la valeur initiale du champ caché. La différence entre les deux propriétés est que la première vérifie la validité du prénom dans le <em>[set]</em>, alors que la seconde ne fait aucune vérification.</p>
 <p>Utiliser la propriété automatique <em>[Prenom]</em> revient-il à déclarer un champ public <strong><em>[public string Prenom;]</em></strong> ? Pour l&#x27;utilisateur de la classe, l&#x27;écriture est la même. Mais déclarer public un champ d&#x27;une classe est déconseillé : cela rompt avec le concept d&#x27;encapsulation de l&#x27;état d&#x27;un objet, état qui doit être privé et exposé par des méthodes publiques. Avec une propriété automatique, on pourra plus tard ajouter des vérifications dans le <em>[set]</em> sans changer le code des utilisateurs de la classe.</p>
@@ -2713,7 +2713,7 @@
 <p>Le prénom « jean », fourni entouré d&#x27;espaces (ligne 2), a été mémorisé sans eux (ligne 2).</p>
 <h3 id="4119-les-methodes-et-attributs-de-classe">4.1.19. <span style="color: #1f4d78">Les méthodes et attributs de classe</span></h3>
 <p>Supposons qu&#x27;on veuille compter le nombre d&#x27;objets <em>[Personne]</em> créés dans une application. On peut soi-même gérer un compteur mais on risque d&#x27;oublier les objets temporaires qui sont créés ici ou là. Il semble plus sûr d&#x27;inclure dans les constructeurs de la classe <em>[Personne]</em> une instruction incrémentant un compteur. Ce compteur ne peut pas être un champ ordinaire, puisque chaque objet a ses propres champs : c&#x27;est un champ de la classe elle-même et non celui d&#x27;une instance particulière de cette classe. On le déclare avec le mot clé <em>[static]</em> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a>private static long nbPersonnes;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">nbPersonnes</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Pour le désigner, on écrit <strong><em>[Personne.nbPersonnes]</em></strong> pour montrer que c&#x27;est un champ de la classe <em>[Personne]</em> elle-même. Ici, nous avons créé un champ privé auquel on n&#x27;aura pas accès directement en dehors de la classe. On crée donc une propriété publique pour donner accès au champ de classe <em>[nbPersonnes]</em>. Pour rendre la valeur de <em>[nbPersonnes]</em>, la méthode <em>[get]</em> de cette propriété n&#x27;a pas besoin d&#x27;un objet <em>[Personne]</em> particulier : aussi a-t-on besoin d&#x27;une propriété déclarée elle aussi <em>[static]</em>, qui de l&#x27;extérieur sera appelée avec la syntaxe <strong><em>[Personne.NbPersonnes]</em></strong>. Voici un exemple <em>[classes-10.cs]</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-43-1"> 1</a></span>
@@ -2845,16 +2845,16 @@
 <span class="normal"><a href="#__codelineno-45-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-45-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-45-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-45-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a>// un tableau de personnes
-<a id="__codelineno-45-2" name="__codelineno-45-2"></a>Personne[] amis = new Personne[3];
-<a id="__codelineno-45-3" name="__codelineno-45-3"></a>amis[0] = new Personne("Jean", "Dupont", 30);
-<a id="__codelineno-45-4" name="__codelineno-45-4"></a>amis[1] = new Personne("Sylvie", "Vartan", 52);
-<a id="__codelineno-45-5" name="__codelineno-45-5"></a>amis[2] = new Personne("Neil", "Armstrong", 66);
-<a id="__codelineno-45-6" name="__codelineno-45-6"></a>// affichage
-<a id="__codelineno-45-7" name="__codelineno-45-7"></a>foreach (Personne ami in amis)
-<a id="__codelineno-45-8" name="__codelineno-45-8"></a>{
-<a id="__codelineno-45-9" name="__codelineno-45-9"></a>    ami.Identifie();
-<a id="__codelineno-45-10" name="__codelineno-45-10"></a>}
+<span class="normal"><a href="#__codelineno-45-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="c1">// un tableau de personnes</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2"></a><span class="n">Personne</span><span class="p">[]</span><span class="w"> </span><span class="n">amis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Personne</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="n">amis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Personne</span><span class="p">(</span><span class="s">"Jean"</span><span class="p">,</span><span class="w"> </span><span class="s">"Dupont"</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4"></a><span class="n">amis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Personne</span><span class="p">(</span><span class="s">"Sylvie"</span><span class="p">,</span><span class="w"> </span><span class="s">"Vartan"</span><span class="p">,</span><span class="w"> </span><span class="mi">52</span><span class="p">);</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5"></a><span class="n">amis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Personne</span><span class="p">(</span><span class="s">"Neil"</span><span class="p">,</span><span class="w"> </span><span class="s">"Armstrong"</span><span class="p">,</span><span class="w"> </span><span class="mi">66</span><span class="p">);</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6"></a><span class="c1">// affichage</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="n">Personne</span><span class="w"> </span><span class="n">ami</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">amis</span><span class="p">)</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8"></a><span class="p">{</span>
+<a id="__codelineno-45-9" name="__codelineno-45-9"></a><span class="w">    </span><span class="n">ami</span><span class="p">.</span><span class="n">Identifie</span><span class="p">();</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 2 : crée un tableau de 3 éléments de type <em>[Personne]</em>. Ces 3 éléments sont initialisés ici avec la valeur <em>[null]</em>, c&#x27;est-à-dire qu&#x27;ils ne référencent aucun objet. Par abus de langage, on parle de tableau d&#x27;objets alors que ce n&#x27;est qu&#x27;un tableau de références d&#x27;objets. La création du tableau, qui est un objet lui-même (présence de <em>[new]</em>), ne crée aucun objet du type de ses éléments : il faut le faire ensuite. On notera que le compilateur ne signale pas que les éléments d&#x27;un tableau de type <strong><em>[Personne[]]</em></strong> valent <em>[null]</em> juste après sa création : c&#x27;est une limite de l&#x27;analyse des types nullables ;</li>
@@ -3175,21 +3175,21 @@
 <span class="normal"><a href="#__codelineno-53-4">4</a></span>
 <span class="normal"><a href="#__codelineno-53-5">5</a></span>
 <span class="normal"><a href="#__codelineno-53-6">6</a></span>
-<span class="normal"><a href="#__codelineno-53-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1"></a>public Enseignant(string prenom, string nom, int age, int section)
-<a id="__codelineno-53-2" name="__codelineno-53-2"></a>{
-<a id="__codelineno-53-3" name="__codelineno-53-3"></a>    this.prenom = prenom;
-<a id="__codelineno-53-4" name="__codelineno-53-4"></a>    this.nom = nom;
-<a id="__codelineno-53-5" name="__codelineno-53-5"></a>    this.age = age;
-<a id="__codelineno-53-6" name="__codelineno-53-6"></a>    Section = section;
-<a id="__codelineno-53-7" name="__codelineno-53-7"></a>}
+<span class="normal"><a href="#__codelineno-53-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="k">public</span><span class="w"> </span><span class="nf">Enseignant</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">prenom</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">nom</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">section</span><span class="p">)</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="p">{</span>
+<a id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">prenom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prenom</span><span class="p">;</span>
+<a id="__codelineno-53-4" name="__codelineno-53-4"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">nom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nom</span><span class="p">;</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-53-6" name="__codelineno-53-6"></a><span class="w">    </span><span class="n">Section</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">section</span><span class="p">;</span>
+<a id="__codelineno-53-7" name="__codelineno-53-7"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>C&#x27;est impossible, pour deux raisons. D&#x27;abord, la classe <em>[Personne]</em> n&#x27;a pas de constructeur sans paramètres : en l&#x27;absence de <strong><em>[: base(...)]</em></strong>, le compilateur cherche à appeler ce constructeur et signale une erreur. Ensuite, même si les champs privés <em>[prenom]</em>, <em>[nom]</em>, <em>[age]</em> existaient (ici ce sont les champs cachés des propriétés), seuls les objets de la classe <em>[Personne]</em> y ont un accès direct. Tous les autres objets, y compris des objets de classes dérivées comme ici, doivent passer par des membres publics (ou protégés) pour y avoir accès. Cela aurait été différent si la classe <em>[Personne]</em> avait déclaré ces champs protégés (<em>[protected]</em>) : elle aurait alors autorisé les classes dérivées à y avoir un accès direct. Utiliser le constructeur de la classe parent est donc la bonne solution et c&#x27;est la méthode habituelle : lors de la construction d&#x27;un objet fils, on appelle d&#x27;abord le constructeur de l&#x27;objet parent puis on complète les initialisations propres cette fois à l&#x27;objet fils (<em>[Section]</em> dans notre exemple).</p>
 <p>Si la classe <em>[Enseignant]</em> ne définissait pas de propriété <em>[Identite]</em>, l&#x27;expression <strong><em>[e.Identite]</em></strong>, où <em>[e]</em> est un enseignant, désignerait la propriété <em>[Identite]</em> héritée de la classe <em>[Personne]</em> : elle est publique et devient par héritage une propriété publique de la classe <em>[Enseignant]</em>. On obtiendrait alors l&#x27;identité de la partie <em>[Personne]</em> de l&#x27;enseignant, sans sa section.</p>
 <h3 id="423-masquage-dune-propriete-ou-dune-methode-le-mot-cle-new">4.2.3. <span style="color: #1f4d78">Masquage d&#x27;une propriété ou d&#x27;une méthode : le mot clé new</span></h3>
 <p>Pour obtenir l&#x27;identité complète d&#x27;un enseignant, la classe <em>[Enseignant]</em> définit sa propre propriété <em>[Identite]</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-54-18">18</a></span>
-<span class="normal"><a href="#__codelineno-54-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-54-18" name="__codelineno-54-18"></a>    // propriété Identite : elle masque (new) celle de la classe parent
-<a id="__codelineno-54-19" name="__codelineno-54-19"></a>    public new string Identite =&gt; $"Enseignant[{base.Identite},{Section}]";
+<span class="normal"><a href="#__codelineno-54-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-54-18" name="__codelineno-54-18"></a><span class="w">    </span><span class="c1">// propriété Identite : elle masque (new) celle de la classe parent</span>
+<a id="__codelineno-54-19" name="__codelineno-54-19"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Identite</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"Enseignant[{base.Identite},{Section}]"</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>La propriété <em>[Identite]</em> de la classe <em>[Enseignant]</em> s&#x27;appuie sur la propriété <em>[Identite]</em> de sa classe mère, désignée par <strong><em>[base.Identite]</em></strong>, pour obtenir la partie « Personne » puis complète avec la section, qui est propre à la classe <em>[Enseignant]</em>.</p>
 <p>Soit un objet enseignant <em>[E]</em>. Cet objet contient en son sein un objet <em>[Personne]</em> :</p>
@@ -3309,11 +3309,11 @@
 <span class="normal"><a href="#__codelineno-58-38">38</a></span>
 <span class="normal"><a href="#__codelineno-58-39">39</a></span>
 <span class="normal"><a href="#__codelineno-58-40">40</a></span>
-<span class="normal"><a href="#__codelineno-58-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-58-37" name="__codelineno-58-37"></a>    // identité de la personne : propriété virtuelle
-<a id="__codelineno-58-38" name="__codelineno-58-38"></a>    public virtual string Identite =&gt; $"[{Prenom}, {Nom}, {Age}]";
+<span class="normal"><a href="#__codelineno-58-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-58-37" name="__codelineno-58-37"></a><span class="w">    </span><span class="c1">// identité de la personne : propriété virtuelle</span>
+<a id="__codelineno-58-38" name="__codelineno-58-38"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Identite</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s">$"[{Prenom}, {Nom}, {Age}]"</span><span class="p">;</span>
 <a id="__codelineno-58-39" name="__codelineno-58-39"></a>
-<a id="__codelineno-58-40" name="__codelineno-58-40"></a>    // redéfinition de la méthode ToString de la classe object
-<a id="__codelineno-58-41" name="__codelineno-58-41"></a>    public override string ToString() =&gt; Identite;
+<a id="__codelineno-58-40" name="__codelineno-58-40"></a><span class="w">    </span><span class="c1">// redéfinition de la méthode ToString de la classe object</span>
+<a id="__codelineno-58-41" name="__codelineno-58-41"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Identite</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 38 : le mot clé <em>[virtual]</em> fait de <em>[Identite]</em> une propriété virtuelle. Ce mot clé peut s&#x27;appliquer également aux méthodes. Les classes filles qui redéfinissent une propriété ou méthode virtuelle doivent alors utiliser le mot clé <em>[override]</em> au lieu de <em>[new]</em> pour qualifier leur propriété ou méthode redéfinie ;</li>
@@ -3440,7 +3440,7 @@
 </code></pre></div></td></tr></table></div>
 <p>La classe <em>[object]</em> définit une méthode virtuelle <em>[ToString]</em>, qui rend par défaut le nom complet de la classe de l&#x27;objet. C&#x27;est ce qu&#x27;ont affiché les deux dernières lignes de résultats du projet <em>[Heritage1]</em>, avec les appels <strong><em>[e.ToString()]</em></strong> et <strong><em>[p.ToString()]</em></strong> : <em>[Heritage1.Enseignant]</em> et <em>[Heritage1.Personne]</em>. Bien que nous n&#x27;ayons pas redéfini la méthode <em>[ToString]</em> dans les classes <em>[Personne]</em> et <em>[Enseignant]</em>, la méthode <em>[ToString]</em> de la classe <em>[object]</em> a été capable d&#x27;afficher le nom réel de la classe de l&#x27;objet.</p>
 <p>Dans le projet <em>[Heritage2]</em>, la classe <em>[Personne]</em> redéfinit la méthode <em>[ToString]</em> (voir plus haut) :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-64-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1"></a>public override string ToString() =&gt; Identite;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-64-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Identite</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Revenons au programme <em>[Program.cs]</em> du projet <em>[Heritage2]</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-65-9"> 9</a></span>
@@ -3469,11 +3469,11 @@
 <h2 id="43-redefinir-la-signification-dun-operateur-pour-une-classe">4.3. <span style="color: #2e74b5">Redéfinir la signification d&#x27;un opérateur pour une classe</span></h2>
 <h3 id="431-introduction">4.3.1. <span style="color: #1f4d78">Introduction</span></h3>
 <p>Considérons l&#x27;expression <strong><em>[op1 + op2]</em></strong> où <em>[op1]</em> et <em>[op2]</em> sont deux opérandes. Il est possible de redéfinir la signification de l&#x27;opérateur <strong><em>[+]</em></strong>. Si l&#x27;opérande <em>[op1]</em> est un objet de classe <em>[C1]</em>, il faut définir une méthode statique dans la classe <em>[C1]</em> avec la signature suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-66-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1"></a>public static Type operator +(C1 operande1, C2 operande2)
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-66-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Type</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">+</span><span class="p">(</span><span class="n">C1</span><span class="w"> </span><span class="n">operande1</span><span class="p">,</span><span class="w"> </span><span class="n">C2</span><span class="w"> </span><span class="n">operande2</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Lorsque le compilateur rencontre l&#x27;expression <strong><em>[op1 + op2]</em></strong>, il la traduit alors par <strong><em>[C1.operator +(op1, op2)]</em></strong>. Le type rendu par la méthode <em>[operator]</em> est important. En effet, considérons l&#x27;opération <strong><em>[op1 + op2 + op3]</em></strong>. Elle est traduite par le compilateur par <strong><em>[(op1 + op2) + op3]</em></strong>. Soit <em>[res12]</em> le résultat de <strong><em>[op1 + op2]</em></strong>. L&#x27;opération qui est faite ensuite est <strong><em>[res12 + op3]</em></strong>. Si <em>[res12]</em> est de type <em>[C1]</em>, elle sera traduite elle aussi par <strong><em>[C1.operator +(res12, op3)]</em></strong>. Cela permet d&#x27;enchaîner les opérations.</p>
 <p>On peut redéfinir également les opérateurs unaires n&#x27;ayant qu&#x27;un seul opérande. Ainsi si <em>[op1]</em> est un objet de type <em>[C1]</em>, l&#x27;opération <strong><em>[op1++]</em></strong> peut être redéfinie par une méthode statique de la classe <em>[C1]</em> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-67-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a>public static C1 operator ++(C1 operande1)
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-67-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">C1</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">++</span><span class="p">(</span><span class="n">C1</span><span class="w"> </span><span class="n">operande1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Ce qui a été dit ici est vrai pour la plupart des opérateurs avec cependant quelques exceptions :</p>
 <ul>
@@ -3543,61 +3543,61 @@
 <span class="normal"><a href="#__codelineno-68-52">52</a></span>
 <span class="normal"><a href="#__codelineno-68-53">53</a></span>
 <span class="normal"><a href="#__codelineno-68-54">54</a></span>
-<span class="normal"><a href="#__codelineno-68-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1"></a>namespace Listes;
+<span class="normal"><a href="#__codelineno-68-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Listes</span><span class="p">;</span>
 <a id="__codelineno-68-2" name="__codelineno-68-2"></a>
-<a id="__codelineno-68-3" name="__codelineno-68-3"></a>public class ListeDePersonnes
-<a id="__codelineno-68-4" name="__codelineno-68-4"></a>{
-<a id="__codelineno-68-5" name="__codelineno-68-5"></a>    // les personnes de la liste
-<a id="__codelineno-68-6" name="__codelineno-68-6"></a>    private readonly List&lt;Personne&gt; personnes = [];
+<a id="__codelineno-68-3" name="__codelineno-68-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ListeDePersonnes</span>
+<a id="__codelineno-68-4" name="__codelineno-68-4"></a><span class="p">{</span>
+<a id="__codelineno-68-5" name="__codelineno-68-5"></a><span class="w">    </span><span class="c1">// les personnes de la liste</span>
+<a id="__codelineno-68-6" name="__codelineno-68-6"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Personne</span><span class="o">&gt;</span><span class="w"> </span><span class="n">personnes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
 <a id="__codelineno-68-7" name="__codelineno-68-7"></a>
-<a id="__codelineno-68-8" name="__codelineno-68-8"></a>    // nombre de personnes dans la liste
-<a id="__codelineno-68-9" name="__codelineno-68-9"></a>    public int Count =&gt; personnes.Count;
+<a id="__codelineno-68-8" name="__codelineno-68-8"></a><span class="w">    </span><span class="c1">// nombre de personnes dans la liste</span>
+<a id="__codelineno-68-9" name="__codelineno-68-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Count</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">personnes</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
 <a id="__codelineno-68-10" name="__codelineno-68-10"></a>
-<a id="__codelineno-68-11" name="__codelineno-68-11"></a>    // opérateur + : rend une nouvelle liste contenant les personnes de l et la personne p
-<a id="__codelineno-68-12" name="__codelineno-68-12"></a>    public static ListeDePersonnes operator +(ListeDePersonnes l, Personne p)
-<a id="__codelineno-68-13" name="__codelineno-68-13"></a>    {
-<a id="__codelineno-68-14" name="__codelineno-68-14"></a>        ListeDePersonnes resultat = new ListeDePersonnes();
-<a id="__codelineno-68-15" name="__codelineno-68-15"></a>        resultat.personnes.AddRange(l.personnes);
-<a id="__codelineno-68-16" name="__codelineno-68-16"></a>        resultat.personnes.Add(p);
-<a id="__codelineno-68-17" name="__codelineno-68-17"></a>        return resultat;
-<a id="__codelineno-68-18" name="__codelineno-68-18"></a>    }
+<a id="__codelineno-68-11" name="__codelineno-68-11"></a><span class="w">    </span><span class="c1">// opérateur + : rend une nouvelle liste contenant les personnes de l et la personne p</span>
+<a id="__codelineno-68-12" name="__codelineno-68-12"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">ListeDePersonnes</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">+</span><span class="p">(</span><span class="n">ListeDePersonnes</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">Personne</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<a id="__codelineno-68-13" name="__codelineno-68-13"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-68-14" name="__codelineno-68-14"></a><span class="w">        </span><span class="n">ListeDePersonnes</span><span class="w"> </span><span class="n">resultat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ListeDePersonnes</span><span class="p">();</span>
+<a id="__codelineno-68-15" name="__codelineno-68-15"></a><span class="w">        </span><span class="n">resultat</span><span class="p">.</span><span class="n">personnes</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">personnes</span><span class="p">);</span>
+<a id="__codelineno-68-16" name="__codelineno-68-16"></a><span class="w">        </span><span class="n">resultat</span><span class="p">.</span><span class="n">personnes</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-68-17" name="__codelineno-68-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">resultat</span><span class="p">;</span>
+<a id="__codelineno-68-18" name="__codelineno-68-18"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-68-19" name="__codelineno-68-19"></a>
-<a id="__codelineno-68-20" name="__codelineno-68-20"></a>    // opérateur d'affectation composée += (C# 14) : ajoute p à la liste courante
-<a id="__codelineno-68-21" name="__codelineno-68-21"></a>    public void operator +=(Personne p)
-<a id="__codelineno-68-22" name="__codelineno-68-22"></a>    {
-<a id="__codelineno-68-23" name="__codelineno-68-23"></a>        personnes.Add(p);
-<a id="__codelineno-68-24" name="__codelineno-68-24"></a>    }
+<a id="__codelineno-68-20" name="__codelineno-68-20"></a><span class="w">    </span><span class="c1">// opérateur d'affectation composée += (C# 14) : ajoute p à la liste courante</span>
+<a id="__codelineno-68-21" name="__codelineno-68-21"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">+=</span><span class="p">(</span><span class="n">Personne</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<a id="__codelineno-68-22" name="__codelineno-68-22"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-68-23" name="__codelineno-68-23"></a><span class="w">        </span><span class="n">personnes</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<a id="__codelineno-68-24" name="__codelineno-68-24"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-68-25" name="__codelineno-68-25"></a>
-<a id="__codelineno-68-26" name="__codelineno-68-26"></a>    // indexeur par position, en lecture et en écriture
-<a id="__codelineno-68-27" name="__codelineno-68-27"></a>    public Personne this[int i]
-<a id="__codelineno-68-28" name="__codelineno-68-28"></a>    {
-<a id="__codelineno-68-29" name="__codelineno-68-29"></a>        get { return personnes[i]; }
-<a id="__codelineno-68-30" name="__codelineno-68-30"></a>        set { personnes[i] = value; }
-<a id="__codelineno-68-31" name="__codelineno-68-31"></a>    }
+<a id="__codelineno-68-26" name="__codelineno-68-26"></a><span class="w">    </span><span class="c1">// indexeur par position, en lecture et en écriture</span>
+<a id="__codelineno-68-27" name="__codelineno-68-27"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Personne</span><span class="w"> </span><span class="k">this</span><span class="p">[</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-68-28" name="__codelineno-68-28"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-68-29" name="__codelineno-68-29"></a><span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">personnes</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-68-30" name="__codelineno-68-30"></a><span class="w">        </span><span class="k">set</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">personnes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-68-31" name="__codelineno-68-31"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-68-32" name="__codelineno-68-32"></a>
-<a id="__codelineno-68-33" name="__codelineno-68-33"></a>    // indexeur par nom, en lecture seule : rend la position de la personne ou -1
-<a id="__codelineno-68-34" name="__codelineno-68-34"></a>    public int this[string nom]
-<a id="__codelineno-68-35" name="__codelineno-68-35"></a>    {
-<a id="__codelineno-68-36" name="__codelineno-68-36"></a>        get
-<a id="__codelineno-68-37" name="__codelineno-68-37"></a>        {
-<a id="__codelineno-68-38" name="__codelineno-68-38"></a>            // on recherche la personne
-<a id="__codelineno-68-39" name="__codelineno-68-39"></a>            for (int i = 0; i &lt; personnes.Count; i++)
-<a id="__codelineno-68-40" name="__codelineno-68-40"></a>            {
-<a id="__codelineno-68-41" name="__codelineno-68-41"></a>                if (personnes[i].Nom == nom)
-<a id="__codelineno-68-42" name="__codelineno-68-42"></a>                {
-<a id="__codelineno-68-43" name="__codelineno-68-43"></a>                    return i;
-<a id="__codelineno-68-44" name="__codelineno-68-44"></a>                }
-<a id="__codelineno-68-45" name="__codelineno-68-45"></a>            }
-<a id="__codelineno-68-46" name="__codelineno-68-46"></a>            return -1;
-<a id="__codelineno-68-47" name="__codelineno-68-47"></a>        }
-<a id="__codelineno-68-48" name="__codelineno-68-48"></a>    }
+<a id="__codelineno-68-33" name="__codelineno-68-33"></a><span class="w">    </span><span class="c1">// indexeur par nom, en lecture seule : rend la position de la personne ou -1</span>
+<a id="__codelineno-68-34" name="__codelineno-68-34"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="k">this</span><span class="p">[</span><span class="kt">string</span><span class="w"> </span><span class="n">nom</span><span class="p">]</span>
+<a id="__codelineno-68-35" name="__codelineno-68-35"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-68-36" name="__codelineno-68-36"></a><span class="w">        </span><span class="k">get</span>
+<a id="__codelineno-68-37" name="__codelineno-68-37"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-68-38" name="__codelineno-68-38"></a><span class="w">            </span><span class="c1">// on recherche la personne</span>
+<a id="__codelineno-68-39" name="__codelineno-68-39"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">personnes</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-68-40" name="__codelineno-68-40"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-68-41" name="__codelineno-68-41"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">personnes</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Nom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span>
+<a id="__codelineno-68-42" name="__codelineno-68-42"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-68-43" name="__codelineno-68-43"></a><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-68-44" name="__codelineno-68-44"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-68-45" name="__codelineno-68-45"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-68-46" name="__codelineno-68-46"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-68-47" name="__codelineno-68-47"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-68-48" name="__codelineno-68-48"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-68-49" name="__codelineno-68-49"></a>
-<a id="__codelineno-68-50" name="__codelineno-68-50"></a>    // ToString : rend (personne1,personne2,...)
-<a id="__codelineno-68-51" name="__codelineno-68-51"></a>    public override string ToString()
-<a id="__codelineno-68-52" name="__codelineno-68-52"></a>    {
-<a id="__codelineno-68-53" name="__codelineno-68-53"></a>        return "(" + string.Join(",", personnes) + ")";
-<a id="__codelineno-68-54" name="__codelineno-68-54"></a>    }
-<a id="__codelineno-68-55" name="__codelineno-68-55"></a>}
+<a id="__codelineno-68-50" name="__codelineno-68-50"></a><span class="w">    </span><span class="c1">// ToString : rend (personne1,personne2,...)</span>
+<a id="__codelineno-68-51" name="__codelineno-68-51"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ToString</span><span class="p">()</span>
+<a id="__codelineno-68-52" name="__codelineno-68-52"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-68-53" name="__codelineno-68-53"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"("</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">","</span><span class="p">,</span><span class="w"> </span><span class="n">personnes</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">")"</span><span class="p">;</span>
+<a id="__codelineno-68-54" name="__codelineno-68-54"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-68-55" name="__codelineno-68-55"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 6 : la liste des personnes. Le mot clé <em>[readonly]</em> indique que le champ ne peut être affecté que lors de sa déclaration ou dans un constructeur : la liste elle-même pourra changer de contenu, mais le champ désignera toujours la même liste. <strong><em>[]</em></strong> est une expression de collection vide : le type de la collection créée, <em>[List&lt;Personne&gt;]</em>, est déduit du type du champ ;</li>
@@ -3697,29 +3697,29 @@
 <span class="normal"><a href="#__codelineno-71-45">45</a></span>
 <span class="normal"><a href="#__codelineno-71-46">46</a></span>
 <span class="normal"><a href="#__codelineno-71-47">47</a></span>
-<span class="normal"><a href="#__codelineno-71-48">48</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-71-26" name="__codelineno-71-26"></a><span class="w">    </span>//<span class="w"> </span>indexeur<span class="w"> </span>par<span class="w"> </span>position,<span class="w"> </span>en<span class="w"> </span>lecture<span class="w"> </span>et<span class="w"> </span>en<span class="w"> </span>écriture
-<a id="__codelineno-71-27" name="__codelineno-71-27"></a><span class="w">    </span>public<span class="w"> </span>Personne<span class="w"> </span>this<span class="o">[</span>int<span class="w"> </span>i<span class="o">]</span>
-<a id="__codelineno-71-28" name="__codelineno-71-28"></a><span class="w">    </span><span class="o">{</span>
-<a id="__codelineno-71-29" name="__codelineno-71-29"></a><span class="w">        </span>get<span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span>personnes<span class="o">[</span>i<span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="o">}</span>
-<a id="__codelineno-71-30" name="__codelineno-71-30"></a><span class="w">        </span><span class="nb">set</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>personnes<span class="o">[</span>i<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>value<span class="p">;</span><span class="w"> </span><span class="o">}</span>
-<a id="__codelineno-71-31" name="__codelineno-71-31"></a><span class="w">    </span><span class="o">}</span>
+<span class="normal"><a href="#__codelineno-71-48">48</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-71-26" name="__codelineno-71-26"></a><span class="w">    </span><span class="c1">// indexeur par position, en lecture et en écriture</span>
+<a id="__codelineno-71-27" name="__codelineno-71-27"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">Personne</span><span class="w"> </span><span class="k">this</span><span class="p">[</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-71-28" name="__codelineno-71-28"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-71-29" name="__codelineno-71-29"></a><span class="w">        </span><span class="k">get</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">personnes</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-71-30" name="__codelineno-71-30"></a><span class="w">        </span><span class="k">set</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">personnes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">value</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-71-31" name="__codelineno-71-31"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-71-32" name="__codelineno-71-32"></a>
-<a id="__codelineno-71-33" name="__codelineno-71-33"></a><span class="w">    </span>//<span class="w"> </span>indexeur<span class="w"> </span>par<span class="w"> </span>nom,<span class="w"> </span>en<span class="w"> </span>lecture<span class="w"> </span>seule<span class="w"> </span>:<span class="w"> </span>rend<span class="w"> </span>la<span class="w"> </span>position<span class="w"> </span>de<span class="w"> </span>la<span class="w"> </span>personne<span class="w"> </span>ou<span class="w"> </span>-1
-<a id="__codelineno-71-34" name="__codelineno-71-34"></a><span class="w">    </span>public<span class="w"> </span>int<span class="w"> </span>this<span class="o">[</span>string<span class="w"> </span>nom<span class="o">]</span>
-<a id="__codelineno-71-35" name="__codelineno-71-35"></a><span class="w">    </span><span class="o">{</span>
-<a id="__codelineno-71-36" name="__codelineno-71-36"></a><span class="w">        </span>get
-<a id="__codelineno-71-37" name="__codelineno-71-37"></a><span class="w">        </span><span class="o">{</span>
-<a id="__codelineno-71-38" name="__codelineno-71-38"></a><span class="w">            </span>//<span class="w"> </span>on<span class="w"> </span>recherche<span class="w"> </span>la<span class="w"> </span>personne
-<a id="__codelineno-71-39" name="__codelineno-71-39"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span>personnes.Count<span class="p">;</span><span class="w"> </span>i++<span class="o">)</span>
-<a id="__codelineno-71-40" name="__codelineno-71-40"></a><span class="w">            </span><span class="o">{</span>
-<a id="__codelineno-71-41" name="__codelineno-71-41"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>personnes<span class="o">[</span>i<span class="o">]</span>.Nom<span class="w"> </span><span class="o">==</span><span class="w"> </span>nom<span class="o">)</span>
-<a id="__codelineno-71-42" name="__codelineno-71-42"></a><span class="w">                </span><span class="o">{</span>
-<a id="__codelineno-71-43" name="__codelineno-71-43"></a><span class="w">                    </span><span class="k">return</span><span class="w"> </span>i<span class="p">;</span>
-<a id="__codelineno-71-44" name="__codelineno-71-44"></a><span class="w">                </span><span class="o">}</span>
-<a id="__codelineno-71-45" name="__codelineno-71-45"></a><span class="w">            </span><span class="o">}</span>
-<a id="__codelineno-71-46" name="__codelineno-71-46"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span>-1<span class="p">;</span>
-<a id="__codelineno-71-47" name="__codelineno-71-47"></a><span class="w">        </span><span class="o">}</span>
-<a id="__codelineno-71-48" name="__codelineno-71-48"></a><span class="w">    </span><span class="o">}</span>
+<a id="__codelineno-71-33" name="__codelineno-71-33"></a><span class="w">    </span><span class="c1">// indexeur par nom, en lecture seule : rend la position de la personne ou -1</span>
+<a id="__codelineno-71-34" name="__codelineno-71-34"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="k">this</span><span class="p">[</span><span class="kt">string</span><span class="w"> </span><span class="n">nom</span><span class="p">]</span>
+<a id="__codelineno-71-35" name="__codelineno-71-35"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-71-36" name="__codelineno-71-36"></a><span class="w">        </span><span class="k">get</span>
+<a id="__codelineno-71-37" name="__codelineno-71-37"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-71-38" name="__codelineno-71-38"></a><span class="w">            </span><span class="c1">// on recherche la personne</span>
+<a id="__codelineno-71-39" name="__codelineno-71-39"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">personnes</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-71-40" name="__codelineno-71-40"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-71-41" name="__codelineno-71-41"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">personnes</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Nom</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">nom</span><span class="p">)</span>
+<a id="__codelineno-71-42" name="__codelineno-71-42"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-71-43" name="__codelineno-71-43"></a><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-71-44" name="__codelineno-71-44"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-71-45" name="__codelineno-71-45"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-71-46" name="__codelineno-71-46"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-71-47" name="__codelineno-71-47"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-71-48" name="__codelineno-71-48"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>On appelle la propriété <strong><em>[this[int i]]</em></strong> un <strong>indexeur</strong> car elle donne une signification à l&#x27;expression <strong><em>[obj[i]]</em></strong> qui rappelle la notation des tableaux alors que <em>[obj]</em> n&#x27;est pas un tableau mais un objet. La méthode <em>[get]</em> de l&#x27;indexeur de l&#x27;objet <em>[obj]</em> est appelée lorsqu&#x27;on écrit <strong><em>[variable = obj[i]]</em></strong> et la méthode <em>[set]</em> lorsqu&#x27;on écrit <strong><em>[obj[i] = valeur]</em></strong>.</p>
 <ul>
@@ -3799,17 +3799,17 @@
 <span class="normal"><a href="#__codelineno-74-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-74-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-74-10">10</a></span>
-<span class="normal"><a href="#__codelineno-74-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1"></a>struct NomStructure
-<a id="__codelineno-74-2" name="__codelineno-74-2"></a>{
-<a id="__codelineno-74-3" name="__codelineno-74-3"></a>    // champs
-<a id="__codelineno-74-4" name="__codelineno-74-4"></a>    ...
-<a id="__codelineno-74-5" name="__codelineno-74-5"></a>    // propriétés
-<a id="__codelineno-74-6" name="__codelineno-74-6"></a>    ...
-<a id="__codelineno-74-7" name="__codelineno-74-7"></a>    // constructeurs
-<a id="__codelineno-74-8" name="__codelineno-74-8"></a>    ...
-<a id="__codelineno-74-9" name="__codelineno-74-9"></a>    // méthodes
-<a id="__codelineno-74-10" name="__codelineno-74-10"></a>    ...
-<a id="__codelineno-74-11" name="__codelineno-74-11"></a>}
+<span class="normal"><a href="#__codelineno-74-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">NomStructure</span>
+<a id="__codelineno-74-2" name="__codelineno-74-2"></a><span class="p">{</span>
+<a id="__codelineno-74-3" name="__codelineno-74-3"></a><span class="w">    </span><span class="c1">// champs</span>
+<a id="__codelineno-74-4" name="__codelineno-74-4"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-74-5" name="__codelineno-74-5"></a><span class="w">    </span><span class="c1">// propriétés</span>
+<a id="__codelineno-74-6" name="__codelineno-74-6"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-74-7" name="__codelineno-74-7"></a><span class="w">    </span><span class="c1">// constructeurs</span>
+<a id="__codelineno-74-8" name="__codelineno-74-8"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-74-9" name="__codelineno-74-9"></a><span class="w">    </span><span class="c1">// méthodes</span>
+<a id="__codelineno-74-10" name="__codelineno-74-10"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-74-11" name="__codelineno-74-11"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Il y a, malgré une similitude de déclaration, des différences importantes entre classe et structure. La notion d&#x27;héritage n&#x27;existe par exemple pas avec les structures (une structure peut en revanche implémenter des interfaces, présentées plus loin). Si on écrit une classe qui ne doit pas être dérivée, quelles sont les différences entre structure et classe qui vont nous aider à choisir entre les deux ? Aidons-nous de l&#x27;exemple suivant pour le découvrir <em>[classes-13.cs]</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-75-1"> 1</a></span>
@@ -5016,13 +5016,13 @@
 <span class="normal"><a href="#__codelineno-100-4">4</a></span>
 <span class="normal"><a href="#__codelineno-100-5">5</a></span>
 <span class="normal"><a href="#__codelineno-100-6">6</a></span>
-<span class="normal"><a href="#__codelineno-100-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-100-1" name="__codelineno-100-1"></a>public static void Echanger1(ref int value1, ref int value2)
-<a id="__codelineno-100-2" name="__codelineno-100-2"></a>{
-<a id="__codelineno-100-3" name="__codelineno-100-3"></a>    // on échange les valeurs de value1 et value2
-<a id="__codelineno-100-4" name="__codelineno-100-4"></a>    int temp = value2;
-<a id="__codelineno-100-5" name="__codelineno-100-5"></a>    value2 = value1;
-<a id="__codelineno-100-6" name="__codelineno-100-6"></a>    value1 = temp;
-<a id="__codelineno-100-7" name="__codelineno-100-7"></a>}
+<span class="normal"><a href="#__codelineno-100-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-100-1" name="__codelineno-100-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Echanger1</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="k">ref</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value2</span><span class="p">)</span>
+<a id="__codelineno-100-2" name="__codelineno-100-2"></a><span class="p">{</span>
+<a id="__codelineno-100-3" name="__codelineno-100-3"></a><span class="w">    </span><span class="c1">// on échange les valeurs de value1 et value2</span>
+<a id="__codelineno-100-4" name="__codelineno-100-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value2</span><span class="p">;</span>
+<a id="__codelineno-100-5" name="__codelineno-100-5"></a><span class="w">    </span><span class="n">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value1</span><span class="p">;</span>
+<a id="__codelineno-100-6" name="__codelineno-100-6"></a><span class="w">    </span><span class="n">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<a id="__codelineno-100-7" name="__codelineno-100-7"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Maintenant, si on voulait permuter deux références sur des objets <em>[Personne]</em>, on écrirait :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-101-1">1</a></span>
@@ -5031,13 +5031,13 @@
 <span class="normal"><a href="#__codelineno-101-4">4</a></span>
 <span class="normal"><a href="#__codelineno-101-5">5</a></span>
 <span class="normal"><a href="#__codelineno-101-6">6</a></span>
-<span class="normal"><a href="#__codelineno-101-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-101-1" name="__codelineno-101-1"></a>public static void Echanger2(ref Personne value1, ref Personne value2)
-<a id="__codelineno-101-2" name="__codelineno-101-2"></a>{
-<a id="__codelineno-101-3" name="__codelineno-101-3"></a>    // on échange les références value1 et value2
-<a id="__codelineno-101-4" name="__codelineno-101-4"></a>    Personne temp = value2;
-<a id="__codelineno-101-5" name="__codelineno-101-5"></a>    value2 = value1;
-<a id="__codelineno-101-6" name="__codelineno-101-6"></a>    value1 = temp;
-<a id="__codelineno-101-7" name="__codelineno-101-7"></a>}
+<span class="normal"><a href="#__codelineno-101-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-101-1" name="__codelineno-101-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Echanger2</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">Personne</span><span class="w"> </span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="k">ref</span><span class="w"> </span><span class="n">Personne</span><span class="w"> </span><span class="n">value2</span><span class="p">)</span>
+<a id="__codelineno-101-2" name="__codelineno-101-2"></a><span class="p">{</span>
+<a id="__codelineno-101-3" name="__codelineno-101-3"></a><span class="w">    </span><span class="c1">// on échange les références value1 et value2</span>
+<a id="__codelineno-101-4" name="__codelineno-101-4"></a><span class="w">    </span><span class="n">Personne</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value2</span><span class="p">;</span>
+<a id="__codelineno-101-5" name="__codelineno-101-5"></a><span class="w">    </span><span class="n">value2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value1</span><span class="p">;</span>
+<a id="__codelineno-101-6" name="__codelineno-101-6"></a><span class="w">    </span><span class="n">value1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<a id="__codelineno-101-7" name="__codelineno-101-7"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Ce qui différencie les deux méthodes, c&#x27;est le type T des paramètres : <em>[int]</em> dans <em>[Echanger1]</em>, <em>[Personne]</em> dans <em>[Echanger2]</em>. Les classes, interfaces et méthodes génériques répondent au besoin de code qui ne diffère que par le type de certaines données. Elles sont apparues avec C# 2 : avant elles, on utilisait le type <em>[object]</em>, qui accepte tout, au prix de conversions de type à l&#x27;exécution et d&#x27;erreurs détectées seulement à l&#x27;exécution. C&#x27;est ce que faisait la classe <em>[ArrayList]</em> évoquée au paragraphe sur les opérateurs.</p>
 <p>Le programme <em>[classes-17.cs]</em> présente une classe générique, une méthode générique et une seconde classe générique plus réaliste :</p>
@@ -5483,7 +5483,7 @@
 </code></pre></div></td></tr></table></div>
 <h3 id="483-une-interface-generique-icomparert">4.8.3. <span style="color: #1f4d78">Une interface générique : IComparer&lt;T&gt;</span></h3>
 <p>Pour illustrer la notion d&#x27;interface générique, nous allons trier un tableau de personnes d&#x27;abord sur leurs noms, puis sur leurs âges. La méthode qui nous permet de trier un tableau est la méthode statique <em>[Sort]</em> de la classe <em>[Array]</em>. Elle a différentes signatures (elle est surchargée). Nous utiliserons la signature suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-107-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-107-1" name="__codelineno-107-1"></a>public static void Sort&lt;T&gt;(T[] tableau, IComparer&lt;T&gt;? comparateur)
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-107-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-107-1" name="__codelineno-107-1"></a><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="n">Sort</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="p">[]</span><span class="w"> </span><span class="n">tableau</span><span class="p">,</span><span class="w"> </span><span class="n">IComparer</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;?</span><span class="w"> </span><span class="n">comparateur</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><em>[Sort]</em> est une méthode générique où <em>[T]</em> désigne un type quelconque. La méthode reçoit deux paramètres :</p>
 <ul>
@@ -5938,12 +5938,12 @@
 <span class="normal"><a href="#__codelineno-119-3">3</a></span>
 <span class="normal"><a href="#__codelineno-119-4">4</a></span>
 <span class="normal"><a href="#__codelineno-119-5">5</a></span>
-<span class="normal"><a href="#__codelineno-119-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1"></a><span class="o">&gt;</span> <span class="n">dotnet</span> <span class="n">run</span>
-<a id="__codelineno-119-2" name="__codelineno-119-2"></a><span class="n">E1</span><span class="o">.</span><span class="n">Personne</span><span class="p">[</span><span class="n">Jean</span><span class="p">,</span> <span class="n">Dupont</span><span class="p">]</span> <span class="n">E2</span><span class="o">.</span><span class="n">Personne</span><span class="p">[</span><span class="n">Durand</span><span class="p">]</span> <span class="n">E2</span><span class="o">.</span><span class="n">Personne</span><span class="p">[</span><span class="n">Martin</span><span class="p">]</span>
-<a id="__codelineno-119-3" name="__codelineno-119-3"></a><span class="n">E1</span><span class="o">.</span><span class="n">Personne</span><span class="p">,</span> <span class="n">E2</span><span class="o">.</span><span class="n">Personne</span>
-<a id="__codelineno-119-4" name="__codelineno-119-4"></a><span class="n">System</span><span class="o">.</span><span class="n">Console</span> <span class="n">est</span> <span class="n">dans</span> <span class="n">l</span><span class="s1">'assemblage System.Console</span>
-<a id="__codelineno-119-5" name="__codelineno-119-5"></a><span class="n">abcdef</span>
-<a id="__codelineno-119-6" name="__codelineno-119-6"></a><span class="n">origine</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-119-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1"></a>&gt; dotnet run
+<a id="__codelineno-119-2" name="__codelineno-119-2"></a>E1.Personne[Jean, Dupont] E2.Personne[Durand] E2.Personne[Martin]
+<a id="__codelineno-119-3" name="__codelineno-119-3"></a>E1.Personne, E2.Personne
+<a id="__codelineno-119-4" name="__codelineno-119-4"></a>System.Console est dans l'assemblage System.Console
+<a id="__codelineno-119-5" name="__codelineno-119-5"></a>abcdef
+<a id="__codelineno-119-6" name="__codelineno-119-6"></a>origine=(0,0)
 </code></pre></div></td></tr></table></div>
 <h2 id="410-les-records">4.10. <span style="color: #2e74b5">Les records</span></h2>
 <p>Beaucoup de classes ne servent qu&#x27;à transporter des données : une personne, une note, une tranche d&#x27;impôt… Pour elles, on écrit toujours le même code : un constructeur qui recopie ses paramètres dans des propriétés, une méthode <em>[ToString]</em> qui affiche ces propriétés, et souvent des méthodes de comparaison. C# 9 a introduit les <strong>records</strong> (enregistrements) : le compilateur génère ce code à partir d&#x27;une déclaration d&#x27;une ligne. Nous avons déjà rencontré leur version structure (<em>[record struct]</em>) ; voici leur version classe <em>[classes-21.cs]</em> :</p>
@@ -6733,13 +6733,13 @@
 <span class="normal"><a href="#__codelineno-131-4">4</a></span>
 <span class="normal"><a href="#__codelineno-131-5">5</a></span>
 <span class="normal"><a href="#__codelineno-131-6">6</a></span>
-<span class="normal"><a href="#__codelineno-131-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-131-1" name="__codelineno-131-1"></a><span class="n">ImpotsV2</span><span class="o">/</span>
-<a id="__codelineno-131-2" name="__codelineno-131-2"></a><span class="w">  </span><span class="n">TrancheImpot</span><span class="p">.</span><span class="n">cs</span><span class="w">      </span><span class="n">une</span><span class="w"> </span><span class="n">tranche</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">bar</span><span class="err">ème</span>
-<a id="__codelineno-131-3" name="__codelineno-131-3"></a><span class="w">  </span><span class="n">IImpot</span><span class="p">.</span><span class="n">cs</span><span class="w">            </span><span class="n">l</span><span class="c1">'interface du calcul de l'impôt</span>
-<a id="__codelineno-131-4" name="__codelineno-131-4"></a><span class="w">  </span><span class="n">AbstractImpot</span><span class="p">.</span><span class="n">cs</span><span class="w">     </span><span class="n">une</span><span class="w"> </span><span class="n">classe</span><span class="w"> </span><span class="n">abstraite</span><span class="w"> </span><span class="n">impl</span><span class="err">émentant IImpot</span>
-<a id="__codelineno-131-5" name="__codelineno-131-5"></a><span class="w">  </span><span class="n">HardwiredImpot</span><span class="p">.</span><span class="n">cs</span><span class="w">    </span><span class="n">une</span><span class="w"> </span><span class="n">classe</span><span class="w"> </span><span class="n">d</span><span class="err">érivée, avec des données écrites en dur</span>
-<a id="__codelineno-131-6" name="__codelineno-131-6"></a><span class="w">  </span><span class="n">Program</span><span class="p">.</span><span class="n">cs</span><span class="w">           </span><span class="n">le</span><span class="w"> </span><span class="n">programme</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">dialogue</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="c1">'utilisateur</span>
-<a id="__codelineno-131-7" name="__codelineno-131-7"></a><span class="w">  </span><span class="n">ImpotsV2</span><span class="p">.</span><span class="n">csproj</span>
+<span class="normal"><a href="#__codelineno-131-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-131-1" name="__codelineno-131-1"></a>ImpotsV2/
+<a id="__codelineno-131-2" name="__codelineno-131-2"></a>  TrancheImpot.cs      une tranche du barème
+<a id="__codelineno-131-3" name="__codelineno-131-3"></a>  IImpot.cs            l'interface du calcul de l'impôt
+<a id="__codelineno-131-4" name="__codelineno-131-4"></a>  AbstractImpot.cs     une classe abstraite implémentant IImpot
+<a id="__codelineno-131-5" name="__codelineno-131-5"></a>  HardwiredImpot.cs    une classe dérivée, avec des données écrites en dur
+<a id="__codelineno-131-6" name="__codelineno-131-6"></a>  Program.cs           le programme de dialogue avec l'utilisateur
+<a id="__codelineno-131-7" name="__codelineno-131-7"></a>  ImpotsV2.csproj
 </code></pre></div></td></tr></table></div>
 <p>Tout d&#x27;abord, nous définissons un type capable d&#x27;encapsuler une ligne du tableau précédent <em>[TrancheImpot.cs]</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-132-1">1</a></span>
@@ -6880,32 +6880,32 @@
 <span class="normal"><a href="#__codelineno-135-23">23</a></span>
 <span class="normal"><a href="#__codelineno-135-24">24</a></span>
 <span class="normal"><a href="#__codelineno-135-25">25</a></span>
-<span class="normal"><a href="#__codelineno-135-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-135-1" name="__codelineno-135-1"></a><span class="n">namespace</span><span class="w"> </span><span class="n">ImpotsV2</span><span class="err">;</span>
+<span class="normal"><a href="#__codelineno-135-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-135-1" name="__codelineno-135-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">ImpotsV2</span><span class="p">;</span>
 <a id="__codelineno-135-2" name="__codelineno-135-2"></a>
-<a id="__codelineno-135-3" name="__codelineno-135-3"></a><span class="k">public</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nc">HardwiredImpot</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractImpot</span>
-<a id="__codelineno-135-4" name="__codelineno-135-4"></a><span class="err">{</span>
-<a id="__codelineno-135-5" name="__codelineno-135-5"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">donn</span><span class="err">ées du calcul de l'impôt (barème 2004 sur les revenus 2003), écrites « en dur »</span>
-<a id="__codelineno-135-6" name="__codelineno-135-6"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">readonly</span><span class="w"> </span><span class="n">decimal</span><span class="err">[] limites = [4962m, 8382m, 14753m, 23888m, 38868m, 47932m, 0m];</span>
-<a id="__codelineno-135-7" name="__codelineno-135-7"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">readonly</span><span class="w"> </span><span class="n">decimal</span><span class="err">[] coeffR = [0m, 0.068m, 0.191m, 0.283m, 0.374m, 0.426m, 0.481m];</span>
-<a id="__codelineno-135-8" name="__codelineno-135-8"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">static</span><span class="w"> </span><span class="n">readonly</span><span class="w"> </span><span class="n">decimal</span><span class="err">[] coeffN = [0m, 291.09m, 1322.92m, 2668.39m, 4846.98m, 6883.66m, 9505.54m];</span>
+<a id="__codelineno-135-3" name="__codelineno-135-3"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">HardwiredImpot</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractImpot</span>
+<a id="__codelineno-135-4" name="__codelineno-135-4"></a><span class="p">{</span>
+<a id="__codelineno-135-5" name="__codelineno-135-5"></a><span class="w">    </span><span class="c1">// données du calcul de l'impôt (barème 2004 sur les revenus 2003), écrites « en dur »</span>
+<a id="__codelineno-135-6" name="__codelineno-135-6"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">decimal</span><span class="p">[]</span><span class="w"> </span><span class="n">limites</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">4962m</span><span class="p">,</span><span class="w"> </span><span class="mf">8382m</span><span class="p">,</span><span class="w"> </span><span class="mf">14753m</span><span class="p">,</span><span class="w"> </span><span class="mf">23888m</span><span class="p">,</span><span class="w"> </span><span class="mf">38868m</span><span class="p">,</span><span class="w"> </span><span class="mf">47932m</span><span class="p">,</span><span class="w"> </span><span class="mf">0m</span><span class="p">];</span>
+<a id="__codelineno-135-7" name="__codelineno-135-7"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">decimal</span><span class="p">[]</span><span class="w"> </span><span class="n">coeffR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0m</span><span class="p">,</span><span class="w"> </span><span class="mf">0.068m</span><span class="p">,</span><span class="w"> </span><span class="mf">0.191m</span><span class="p">,</span><span class="w"> </span><span class="mf">0.283m</span><span class="p">,</span><span class="w"> </span><span class="mf">0.374m</span><span class="p">,</span><span class="w"> </span><span class="mf">0.426m</span><span class="p">,</span><span class="w"> </span><span class="mf">0.481m</span><span class="p">];</span>
+<a id="__codelineno-135-8" name="__codelineno-135-8"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">decimal</span><span class="p">[]</span><span class="w"> </span><span class="n">coeffN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0m</span><span class="p">,</span><span class="w"> </span><span class="mf">291.09m</span><span class="p">,</span><span class="w"> </span><span class="mf">1322.92m</span><span class="p">,</span><span class="w"> </span><span class="mf">2668.39m</span><span class="p">,</span><span class="w"> </span><span class="mf">4846.98m</span><span class="p">,</span><span class="w"> </span><span class="mf">6883.66m</span><span class="p">,</span><span class="w"> </span><span class="mf">9505.54m</span><span class="p">];</span>
 <a id="__codelineno-135-9" name="__codelineno-135-9"></a>
-<a id="__codelineno-135-10" name="__codelineno-135-10"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">tranches</span><span class="w"> </span><span class="n">d</span><span class="c1">'impôt</span>
-<a id="__codelineno-135-11" name="__codelineno-135-11"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">readonly</span><span class="w"> </span><span class="n">TrancheImpot</span><span class="err">[] tranchesImpot;</span>
+<a id="__codelineno-135-10" name="__codelineno-135-10"></a><span class="w">    </span><span class="c1">// les tranches d'impôt</span>
+<a id="__codelineno-135-11" name="__codelineno-135-11"></a><span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">TrancheImpot</span><span class="p">[]</span><span class="w"> </span><span class="n">tranchesImpot</span><span class="p">;</span>
 <a id="__codelineno-135-12" name="__codelineno-135-12"></a>
-<a id="__codelineno-135-13" name="__codelineno-135-13"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">constructeur</span>
-<a id="__codelineno-135-14" name="__codelineno-135-14"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">HardwiredImpot</span><span class="p">()</span>
-<a id="__codelineno-135-15" name="__codelineno-135-15"></a><span class="w">    </span><span class="err">{</span>
-<a id="__codelineno-135-16" name="__codelineno-135-16"></a><span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="n">cr</span><span class="err">éation et remplissage du tableau des tranches d'impôt</span>
-<a id="__codelineno-135-17" name="__codelineno-135-17"></a><span class="w">        </span><span class="n">tranchesImpot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TrancheImpot</span><span class="err">[limites.Length];</span>
-<a id="__codelineno-135-18" name="__codelineno-135-18"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nb">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="err">; i &lt; tranchesImpot.Length; i++)</span>
-<a id="__codelineno-135-19" name="__codelineno-135-19"></a><span class="w">        </span><span class="err">{</span>
-<a id="__codelineno-135-20" name="__codelineno-135-20"></a><span class="w">            </span><span class="n">tranchesImpot</span><span class="err">[i] = new TrancheImpot(limites[i], coeffR[i], coeffN[i]);</span>
-<a id="__codelineno-135-21" name="__codelineno-135-21"></a><span class="w">        </span><span class="err">}</span>
-<a id="__codelineno-135-22" name="__codelineno-135-22"></a><span class="w">    </span><span class="err">}</span>
+<a id="__codelineno-135-13" name="__codelineno-135-13"></a><span class="w">    </span><span class="c1">// constructeur</span>
+<a id="__codelineno-135-14" name="__codelineno-135-14"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">HardwiredImpot</span><span class="p">()</span>
+<a id="__codelineno-135-15" name="__codelineno-135-15"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-135-16" name="__codelineno-135-16"></a><span class="w">        </span><span class="c1">// création et remplissage du tableau des tranches d'impôt</span>
+<a id="__codelineno-135-17" name="__codelineno-135-17"></a><span class="w">        </span><span class="n">tranchesImpot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TrancheImpot</span><span class="p">[</span><span class="n">limites</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+<a id="__codelineno-135-18" name="__codelineno-135-18"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tranchesImpot</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-135-19" name="__codelineno-135-19"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-135-20" name="__codelineno-135-20"></a><span class="w">            </span><span class="n">tranchesImpot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TrancheImpot</span><span class="p">(</span><span class="n">limites</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">coeffR</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">coeffN</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a id="__codelineno-135-21" name="__codelineno-135-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-135-22" name="__codelineno-135-22"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-135-23" name="__codelineno-135-23"></a>
-<a id="__codelineno-135-24" name="__codelineno-135-24"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">impl</span><span class="err">émentation de la propriété abstraite de la classe parent</span>
-<a id="__codelineno-135-25" name="__codelineno-135-25"></a><span class="w">    </span><span class="n">protected</span><span class="w"> </span><span class="n">override</span><span class="w"> </span><span class="n">TrancheImpot</span><span class="err">[] TranchesImpot =&gt; tranchesImpot;</span>
-<a id="__codelineno-135-26" name="__codelineno-135-26"></a><span class="err">}</span>
+<a id="__codelineno-135-24" name="__codelineno-135-24"></a><span class="w">    </span><span class="c1">// implémentation de la propriété abstraite de la classe parent</span>
+<a id="__codelineno-135-25" name="__codelineno-135-25"></a><span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="n">TrancheImpot</span><span class="p">[]</span><span class="w"> </span><span class="n">TranchesImpot</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">tranchesImpot</span><span class="p">;</span>
+<a id="__codelineno-135-26" name="__codelineno-135-26"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 6-8 : la classe <em>[HardwiredImpot]</em> définit en dur (hardwired) les données nécessaires au calcul de l&#x27;impôt. Ce sont des champs de classe (<em>[static]</em>) en lecture seule (<em>[readonly]</em>) : ils sont partagés par toutes les instances et ne peuvent pas être remplacés par d&#x27;autres tableaux ;</li>

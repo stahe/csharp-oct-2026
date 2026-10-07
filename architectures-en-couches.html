@@ -1194,9 +1194,9 @@
 <p>La couche <em>[A]</em> fait des demandes à la couche <em>[B]</em>. Dans les cas les plus simples, une couche est implémentée par une unique classe. Mais une application évolue au cours du temps, et la couche <em>[B]</em> peut avoir successivement des classes d&#x27;implémentation différentes <em>[B1]</em>, <em>[B2]</em>, etc. Si la couche <em>[B]</em> est la couche <em>[dao]</em>, elle peut avoir une première implémentation <em>[B1]</em> qui va chercher les données dans un fichier. Quelques années plus tard, on peut vouloir mettre ces données dans une base de données : on construit alors une seconde classe d&#x27;implémentation <em>[B2]</em>. Si, dans l&#x27;application initiale, la couche <em>[A]</em> travaillait directement avec la classe <em>[B1]</em>, on est obligé de réécrire en partie le code de la couche <em>[A]</em>. Supposons par exemple qu&#x27;on ait écrit dans la couche <em>[A]</em> quelque chose comme :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>B1 b1 = new B1(...);
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>...
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>b1.GetData(...);
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">B1</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">B1</span><span class="p">(...);</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">...</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">b1</span><span class="p">.</span><span class="n">GetData</span><span class="p">(...);</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 1 : une instance de la classe <em>[B1]</em> est créée ;</li>
@@ -1208,9 +1208,9 @@
 <p>La couche <em>[A]</em> ne s&#x27;adresse plus directement à la couche <em>[B]</em> mais à son interface <em>[IB]</em>. Dans le code de la couche <em>[A]</em>, la classe d&#x27;implémentation <em>[Bi]</em> de la couche <em>[B]</em> n&#x27;apparaît plus qu&#x27;une fois, au moment de la création de l&#x27;objet qui implémente l&#x27;interface <em>[IB]</em>. Ensuite, c&#x27;est l&#x27;interface <em>[IB]</em> et non sa classe d&#x27;implémentation qui est utilisée. Le code précédent devient :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>IB ib = new B1(...);
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>...
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>ib.GetData(...);
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">IB</span><span class="w"> </span><span class="n">ib</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">B1</span><span class="p">(...);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="p">...</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">ib</span><span class="p">.</span><span class="n">GetData</span><span class="p">(...);</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 1 : une instance <em>[ib]</em> implémentant l&#x27;interface <em>[IB]</em> est créée par instanciation de la classe <em>[B1]</em> ;</li>
@@ -1332,23 +1332,23 @@
 <span class="normal"><a href="#__codelineno-8-14">14</a></span>
 <span class="normal"><a href="#__codelineno-8-15">15</a></span>
 <span class="normal"><a href="#__codelineno-8-16">16</a></span>
-<span class="normal"><a href="#__codelineno-8-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">ImpotsV4</span><span class="o">/</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">  </span><span class="n">ImpotsV4</span><span class="p">.</span><span class="n">csproj</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="n">Program</span><span class="p">.</span><span class="n">cs</span><span class="w">                 </span><span class="n">int</span><span class="err">égration des couches</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span><span class="n">DataImpot</span><span class="p">.</span><span class="n">txt</span><span class="w">              </span><span class="n">les</span><span class="w"> </span><span class="n">tranches</span><span class="w"> </span><span class="n">d</span><span class="c1">'impôt</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="n">DataImpotInvalide</span><span class="p">.</span><span class="n">txt</span><span class="w">      </span><span class="n">un</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">tranches</span><span class="w"> </span><span class="n">incorrect</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span><span class="n">Entites</span><span class="o">/</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="n">TrancheImpot</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="n">ImpotException</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="n">Dao</span><span class="o">/</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="n">IImpotDao</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">    </span><span class="n">HardwiredImpot</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="n">FileImpot</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">  </span><span class="n">Metier</span><span class="o">/</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">    </span><span class="n">IImpotMetier</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">    </span><span class="n">ImpotMetier</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">  </span><span class="n">Ui</span><span class="o">/</span>
-<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">    </span><span class="n">Dialogue</span><span class="p">.</span><span class="n">cs</span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>ImpotsV4/
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>  ImpotsV4.csproj
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>  Program.cs                 intégration des couches
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>  DataImpot.txt              les tranches d'impôt
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>  DataImpotInvalide.txt      un fichier de tranches incorrect
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>  Entites/
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    TrancheImpot.cs
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>    ImpotException.cs
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>  Dao/
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>    IImpotDao.cs
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>    HardwiredImpot.cs
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>    FileImpot.cs
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>  Metier/
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>    IImpotMetier.cs
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>    ImpotMetier.cs
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>  Ui/
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>    Dialogue.cs
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>le dossier <em>[Entites]</em> contient les types transversaux aux couches <em>[ui]</em>, <em>[metier]</em> et <em>[dao]</em> : la structure <em>[TrancheImpot]</em> et l&#x27;exception <em>[ImpotException]</em>, reprises de la version 3 ;</li>
@@ -1374,21 +1374,21 @@
 <span class="normal"><a href="#__codelineno-9-12">12</a></span>
 <span class="normal"><a href="#__codelineno-9-13">13</a></span>
 <span class="normal"><a href="#__codelineno-9-14">14</a></span>
-<span class="normal"><a href="#__codelineno-9-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="o">&lt;</span><span class="n">Project</span><span class="w"> </span><span class="n">Sdk</span><span class="o">=</span><span class="ss">"Microsoft.NET.Sdk"</span><span class="o">&gt;</span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">OutputType</span><span class="o">&gt;</span><span class="n">Exe</span><span class="o">&lt;/</span><span class="n">OutputType</span><span class="o">&gt;</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TargetFramework</span><span class="o">&gt;</span><span class="n">net10</span><span class="p">.</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">TargetFramework</span><span class="o">&gt;</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">Nullable</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="k">Nullable</span><span class="o">&gt;</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9"></a>
-<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">    </span><span class="o">&lt;!</span><span class="c1">-- les fichiers de données sont recopiés à côté de l'exécutable --&gt;</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">None</span><span class="w"> </span><span class="k">Update</span><span class="o">=</span><span class="ss">"DataImpot*.txt"</span><span class="w"> </span><span class="n">CopyToOutputDirectory</span><span class="o">=</span><span class="ss">"PreserveNewest"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">    </span><span class="cm">&lt;!-- les fichiers de données sont recopiés à côté de l'exécutable --&gt;</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">    </span><span class="nt">&lt;None</span><span class="w"> </span><span class="na">Update=</span><span class="s">"DataImpot*.txt"</span><span class="w"> </span><span class="na">CopyToOutputDirectory=</span><span class="s">"PreserveNewest"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-9-14" name="__codelineno-9-14"></a>
-<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="o">&lt;/</span><span class="n">Project</span><span class="o">&gt;</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 12 : les fichiers <em>[DataImpot*.txt]</em> sont recopiés à côté de l&#x27;exécutable lors de la compilation, dans le dossier <em>[bin/Debug/net10.0]</em>. La couche <em>[dao]</em> les cherche à cet endroit, qu&#x27;on lance le programme par <strong><em>[dotnet run]</em></strong> depuis le dossier du projet ou directement depuis un autre dossier.</li>
@@ -2096,8 +2096,8 @@
 <h3 id="638-conclusion">6.3.8. <span style="color: #1f4d78">Conclusion</span></h3>
 <p>L&#x27;architecture en couches et l&#x27;utilisation d&#x27;interfaces ont apporté une certaine souplesse à notre application. Elle apparaît dans la façon dont le programme principal crée les couches <em>[dao]</em> et <em>[metier]</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
-<span class="normal"><a href="#__codelineno-24-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">IImpotDao</span><span class="w"> </span><span class="n">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"hardwired"</span><span class="w"> </span><span class="err">? new HardwiredImpot() : new FileImpot(source);</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">metier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ImpotMetier</span><span class="p">(</span><span class="n">dao</span><span class="p">)</span><span class="err">;</span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">IImpotDao</span><span class="w"> </span><span class="n">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"hardwired"</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HardwiredImpot</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileImpot</span><span class="p">(</span><span class="n">source</span><span class="p">);</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">metier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ImpotMetier</span><span class="p">(</span><span class="n">dao</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>Changer l&#x27;implémentation de la couche <em>[dao]</em> ne change que la ligne 1. Une fois les couches créées, le code de la couche <em>[ui]</em> est le même dans les deux cas : la couche <em>[metier]</em> y est manipulée au travers de son interface <em>[IImpotMetier]</em>, et non au travers de sa classe d&#x27;implémentation.</p>
 <p>La même souplesse apparaît dans la couche <em>[metier]</em> : elle est construite à partir d&#x27;une référence sur l&#x27;interface de la couche <em>[dao]</em>. Changer l&#x27;implémentation de cette dernière n&#x27;a donc aucun impact sur la couche <em>[metier]</em>. C&#x27;est pourquoi notre unique classe <em>[ImpotMetier]</em> a pu travailler sans modification avec deux implémentations différentes de la couche <em>[dao]</em>.</p>
@@ -2173,41 +2173,41 @@
 <span class="normal"><a href="#__codelineno-26-32">32</a></span>
 <span class="normal"><a href="#__codelineno-26-33">33</a></span>
 <span class="normal"><a href="#__codelineno-26-34">34</a></span>
-<span class="normal"><a href="#__codelineno-26-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="n">ImpotsV5</span><span class="o">/</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="w">  </span><span class="n">ImpotsV5</span><span class="p">.</span><span class="n">slnx</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">  </span><span class="n">Impots</span><span class="p">.</span><span class="n">Dao</span><span class="o">/</span><span class="w">                    </span><span class="n">biblioth</span><span class="err">èque : entités et couche [dao]</span>
-<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="w">    </span><span class="n">Impots</span><span class="p">.</span><span class="n">Dao</span><span class="p">.</span><span class="n">csproj</span>
-<a id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="w">    </span><span class="n">DataImpot</span><span class="p">.</span><span class="n">txt</span>
-<a id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="w">    </span><span class="n">DataImpot</span><span class="p">.</span><span class="n">json</span>
-<a id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="w">    </span><span class="n">Entites</span><span class="o">/</span>
-<a id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="w">      </span><span class="n">TrancheImpot</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="w">      </span><span class="n">ImpotException</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="w">    </span><span class="n">Dao</span><span class="o">/</span>
-<a id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="w">      </span><span class="n">IImpotDao</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="w">      </span><span class="n">HardwiredImpot</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="w">      </span><span class="n">FileImpot</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="w">      </span><span class="n">JsonImpot</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="w">  </span><span class="n">Impots</span><span class="p">.</span><span class="n">Metier</span><span class="o">/</span><span class="w">                 </span><span class="n">biblioth</span><span class="err">èque : couche [metier]</span>
-<a id="__codelineno-26-16" name="__codelineno-26-16"></a><span class="w">    </span><span class="n">Impots</span><span class="p">.</span><span class="n">Metier</span><span class="p">.</span><span class="n">csproj</span>
-<a id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="w">    </span><span class="n">IImpotMetier</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-18" name="__codelineno-26-18"></a><span class="w">    </span><span class="n">ImpotMetier</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-19" name="__codelineno-26-19"></a><span class="w">  </span><span class="n">Impots</span><span class="p">.</span><span class="n">Ui</span><span class="o">/</span><span class="w">                     </span><span class="n">ex</span><span class="err">écutable : couche [ui] et intégration des couches</span>
-<a id="__codelineno-26-20" name="__codelineno-26-20"></a><span class="w">    </span><span class="n">Impots</span><span class="p">.</span><span class="n">Ui</span><span class="p">.</span><span class="n">csproj</span>
-<a id="__codelineno-26-21" name="__codelineno-26-21"></a><span class="w">    </span><span class="n">Dialogue</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-22" name="__codelineno-26-22"></a><span class="w">    </span><span class="n">Program</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-23" name="__codelineno-26-23"></a><span class="w">    </span><span class="n">appsettings</span><span class="p">.</span><span class="n">json</span>
-<a id="__codelineno-26-24" name="__codelineno-26-24"></a><span class="w">    </span><span class="n">appsettings</span><span class="o">-</span><span class="n">json</span><span class="p">.</span><span class="n">json</span>
-<a id="__codelineno-26-25" name="__codelineno-26-25"></a><span class="w">    </span><span class="n">appsettings</span><span class="o">-</span><span class="n">hardwired</span><span class="p">.</span><span class="n">json</span>
-<a id="__codelineno-26-26" name="__codelineno-26-26"></a><span class="w">    </span><span class="n">appsettings</span><span class="o">-</span><span class="n">erreur</span><span class="p">.</span><span class="n">json</span>
-<a id="__codelineno-26-27" name="__codelineno-26-27"></a><span class="w">  </span><span class="n">Impots</span><span class="p">.</span><span class="n">Tests</span><span class="o">/</span><span class="w">                  </span><span class="n">tests</span><span class="w"> </span><span class="n">unitaires</span><span class="w"> </span><span class="n">MSTest</span>
-<a id="__codelineno-26-28" name="__codelineno-26-28"></a><span class="w">    </span><span class="n">Impots</span><span class="p">.</span><span class="n">Tests</span><span class="p">.</span><span class="n">csproj</span>
-<a id="__codelineno-26-29" name="__codelineno-26-29"></a><span class="w">    </span><span class="n">MSTestSettings</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-30" name="__codelineno-26-30"></a><span class="w">    </span><span class="n">DaoTests</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-31" name="__codelineno-26-31"></a><span class="w">    </span><span class="n">MetierTests</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-32" name="__codelineno-26-32"></a><span class="w">    </span><span class="n">DataImpotInvalide</span><span class="p">.</span><span class="n">txt</span>
-<a id="__codelineno-26-33" name="__codelineno-26-33"></a><span class="w">  </span><span class="n">Essais</span><span class="o">/</span><span class="w">                        </span><span class="n">deux</span><span class="w"> </span><span class="n">programmes</span><span class="w"> </span><span class="n">d</span><span class="c1">'essai</span>
-<a id="__codelineno-26-34" name="__codelineno-26-34"></a><span class="w">    </span><span class="n">essai</span><span class="o">-</span><span class="n">dao</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-26-35" name="__codelineno-26-35"></a><span class="w">    </span><span class="n">essai</span><span class="o">-</span><span class="n">metier</span><span class="p">.</span><span class="n">cs</span>
+<span class="normal"><a href="#__codelineno-26-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>ImpotsV5/
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>  ImpotsV5.slnx
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>  Impots.Dao/                    bibliothèque : entités et couche [dao]
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>    Impots.Dao.csproj
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>    DataImpot.txt
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>    DataImpot.json
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>    Entites/
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a>      TrancheImpot.cs
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>      ImpotException.cs
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a>    Dao/
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a>      IImpotDao.cs
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a>      HardwiredImpot.cs
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a>      FileImpot.cs
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a>      JsonImpot.cs
+<a id="__codelineno-26-15" name="__codelineno-26-15"></a>  Impots.Metier/                 bibliothèque : couche [metier]
+<a id="__codelineno-26-16" name="__codelineno-26-16"></a>    Impots.Metier.csproj
+<a id="__codelineno-26-17" name="__codelineno-26-17"></a>    IImpotMetier.cs
+<a id="__codelineno-26-18" name="__codelineno-26-18"></a>    ImpotMetier.cs
+<a id="__codelineno-26-19" name="__codelineno-26-19"></a>  Impots.Ui/                     exécutable : couche [ui] et intégration des couches
+<a id="__codelineno-26-20" name="__codelineno-26-20"></a>    Impots.Ui.csproj
+<a id="__codelineno-26-21" name="__codelineno-26-21"></a>    Dialogue.cs
+<a id="__codelineno-26-22" name="__codelineno-26-22"></a>    Program.cs
+<a id="__codelineno-26-23" name="__codelineno-26-23"></a>    appsettings.json
+<a id="__codelineno-26-24" name="__codelineno-26-24"></a>    appsettings-json.json
+<a id="__codelineno-26-25" name="__codelineno-26-25"></a>    appsettings-hardwired.json
+<a id="__codelineno-26-26" name="__codelineno-26-26"></a>    appsettings-erreur.json
+<a id="__codelineno-26-27" name="__codelineno-26-27"></a>  Impots.Tests/                  tests unitaires MSTest
+<a id="__codelineno-26-28" name="__codelineno-26-28"></a>    Impots.Tests.csproj
+<a id="__codelineno-26-29" name="__codelineno-26-29"></a>    MSTestSettings.cs
+<a id="__codelineno-26-30" name="__codelineno-26-30"></a>    DaoTests.cs
+<a id="__codelineno-26-31" name="__codelineno-26-31"></a>    MetierTests.cs
+<a id="__codelineno-26-32" name="__codelineno-26-32"></a>    DataImpotInvalide.txt
+<a id="__codelineno-26-33" name="__codelineno-26-33"></a>  Essais/                        deux programmes d'essai
+<a id="__codelineno-26-34" name="__codelineno-26-34"></a>    essai-dao.cs
+<a id="__codelineno-26-35" name="__codelineno-26-35"></a>    essai-metier.cs
 </code></pre></div></td></tr></table></div>
 <p>Le fichier de solution est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
@@ -2215,12 +2215,12 @@
 <span class="normal"><a href="#__codelineno-27-3">3</a></span>
 <span class="normal"><a href="#__codelineno-27-4">4</a></span>
 <span class="normal"><a href="#__codelineno-27-5">5</a></span>
-<span class="normal"><a href="#__codelineno-27-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a>&lt;Solution&gt;
-<a id="__codelineno-27-2" name="__codelineno-27-2"></a>  &lt;Project Path="Impots.Dao/Impots.Dao.csproj" /&gt;
-<a id="__codelineno-27-3" name="__codelineno-27-3"></a>  &lt;Project Path="Impots.Metier/Impots.Metier.csproj" /&gt;
-<a id="__codelineno-27-4" name="__codelineno-27-4"></a>  &lt;Project Path="Impots.Tests/Impots.Tests.csproj" /&gt;
-<a id="__codelineno-27-5" name="__codelineno-27-5"></a>  &lt;Project Path="Impots.Ui/Impots.Ui.csproj" /&gt;
-<a id="__codelineno-27-6" name="__codelineno-27-6"></a>&lt;/Solution&gt;
+<span class="normal"><a href="#__codelineno-27-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="nt">&lt;Solution&gt;</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="w">  </span><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Path=</span><span class="s">"Impots.Dao/Impots.Dao.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="w">  </span><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Path=</span><span class="s">"Impots.Metier/Impots.Metier.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="w">  </span><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Path=</span><span class="s">"Impots.Tests/Impots.Tests.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="w">  </span><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Path=</span><span class="s">"Impots.Ui/Impots.Ui.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="nt">&lt;/Solution&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>La commande <strong><em>[dotnet build ImpotsV5.slnx]</em></strong> compile les quatre projets dans l&#x27;ordre imposé par leurs références : <em>[Impots.Dao]</em> d&#x27;abord, puis <em>[Impots.Metier]</em>, puis <em>[Impots.Ui]</em> et <em>[Impots.Tests]</em>.</p>
 <h3 id="642-la-couche-dao">6.4.2. <span style="color: #1f4d78">La couche <em>[dao]</em></span></h3>
@@ -2240,22 +2240,22 @@
 <span class="normal"><a href="#__codelineno-28-13">13</a></span>
 <span class="normal"><a href="#__codelineno-28-14">14</a></span>
 <span class="normal"><a href="#__codelineno-28-15">15</a></span>
-<span class="normal"><a href="#__codelineno-28-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="o">&lt;</span><span class="n">Project</span><span class="w"> </span><span class="n">Sdk</span><span class="o">=</span><span class="ss">"Microsoft.NET.Sdk"</span><span class="o">&gt;</span>
+<span class="normal"><a href="#__codelineno-28-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-28-2" name="__codelineno-28-2"></a>
-<a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TargetFramework</span><span class="o">&gt;</span><span class="n">net10</span><span class="p">.</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">TargetFramework</span><span class="o">&gt;</span>
-<a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">Nullable</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="k">Nullable</span><span class="o">&gt;</span>
-<a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-28-8" name="__codelineno-28-8"></a>
-<a id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="w">    </span><span class="o">&lt;!</span><span class="c1">-- les fichiers de données sont recopiés à côté de l'exécutable</span>
-<a id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="w">         </span><span class="p">(</span><span class="n">et</span><span class="w"> </span><span class="err">à</span><span class="w"> </span><span class="n">côté</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">celui</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">tout</span><span class="w"> </span><span class="n">projet</span><span class="w"> </span><span class="n">qui</span><span class="w"> </span><span class="n">référence</span><span class="w"> </span><span class="n">celui</span><span class="o">-</span><span class="n">ci</span><span class="p">)</span><span class="w"> </span><span class="c1">--&gt;</span>
-<a id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">None</span><span class="w"> </span><span class="k">Update</span><span class="o">=</span><span class="ss">"DataImpot.txt"</span><span class="w"> </span><span class="n">CopyToOutputDirectory</span><span class="o">=</span><span class="ss">"PreserveNewest"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-28-13" name="__codelineno-28-13"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">None</span><span class="w"> </span><span class="k">Update</span><span class="o">=</span><span class="ss">"DataImpot.json"</span><span class="w"> </span><span class="n">CopyToOutputDirectory</span><span class="o">=</span><span class="ss">"PreserveNewest"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="w">    </span><span class="cm">&lt;!-- les fichiers de données sont recopiés à côté de l'exécutable</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="cm">         (et à côté de celui de tout projet qui référence celui-ci) --&gt;</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="w">    </span><span class="nt">&lt;None</span><span class="w"> </span><span class="na">Update=</span><span class="s">"DataImpot.txt"</span><span class="w"> </span><span class="na">CopyToOutputDirectory=</span><span class="s">"PreserveNewest"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-28-13" name="__codelineno-28-13"></a><span class="w">    </span><span class="nt">&lt;None</span><span class="w"> </span><span class="na">Update=</span><span class="s">"DataImpot.json"</span><span class="w"> </span><span class="na">CopyToOutputDirectory=</span><span class="s">"PreserveNewest"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-28-15" name="__codelineno-28-15"></a>
-<a id="__codelineno-28-16" name="__codelineno-28-16"></a><span class="o">&lt;/</span><span class="n">Project</span><span class="o">&gt;</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 4-6 : les propriétés générées par <em>[dotnet new classlib]</em>. Il n&#x27;y a pas de balise <em>[OutputType]</em> : le projet produit une bibliothèque <em>[Impots.Dao.dll]</em> ;</li>
@@ -2345,26 +2345,26 @@
 <span class="normal"><a href="#__codelineno-31-76">76</a></span>
 <span class="normal"><a href="#__codelineno-31-77">77</a></span>
 <span class="normal"><a href="#__codelineno-31-78">78</a></span>
-<span class="normal"><a href="#__codelineno-31-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-60" name="__codelineno-31-60"></a><span class="w">                </span>//<span class="w"> </span>erreur<span class="w"> </span>?
-<a id="__codelineno-31-61" name="__codelineno-31-61"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>code<span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="o">)</span>
-<a id="__codelineno-31-62" name="__codelineno-31-62"></a><span class="w">                </span><span class="o">{</span>
-<a id="__codelineno-31-63" name="__codelineno-31-63"></a><span class="w">                    </span>throw<span class="w"> </span>new<span class="w"> </span>ImpotException<span class="o">(</span><span class="s2">$"Ligne n° {numLigne} incorrecte : [{ligne}]"</span><span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="nv">Code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span>int<span class="o">)</span>code<span class="w"> </span><span class="o">}</span><span class="p">;</span>
-<a id="__codelineno-31-64" name="__codelineno-31-64"></a><span class="w">                </span><span class="o">}</span>
-<a id="__codelineno-31-65" name="__codelineno-31-65"></a><span class="w">                </span>//<span class="w"> </span>on<span class="w"> </span>mémorise<span class="w"> </span>la<span class="w"> </span>nouvelle<span class="w"> </span>tranche<span class="w"> </span>d<span class="s1">'impôt</span>
-<a id="__codelineno-31-66" name="__codelineno-31-66"></a><span class="s1">                tranches.Add(new TrancheImpot(limite, coeffR, coeffN));</span>
-<a id="__codelineno-31-67" name="__codelineno-31-67"></a><span class="s1">            }</span>
-<a id="__codelineno-31-68" name="__codelineno-31-68"></a><span class="s1">        }</span>
-<a id="__codelineno-31-69" name="__codelineno-31-69"></a><span class="s1">        catch (Exception e) when (e is IOException or UnauthorizedAccessException)</span>
-<a id="__codelineno-31-70" name="__codelineno-31-70"></a><span class="s1">        {</span>
-<a id="__codelineno-31-71" name="__codelineno-31-71"></a><span class="s1">            // erreur d'</span>accès<span class="w"> </span>au<span class="w"> </span>fichier<span class="w"> </span>:<span class="w"> </span>on<span class="w"> </span>l<span class="err">'</span>encapsule<span class="w"> </span>dans<span class="w"> </span>une<span class="w"> </span>ImpotException
-<a id="__codelineno-31-72" name="__codelineno-31-72"></a><span class="w">            </span>throw<span class="w"> </span>new<span class="w"> </span>ImpotException<span class="o">(</span><span class="s2">$"Erreur lors de la lecture du fichier {fileName}"</span>,<span class="w"> </span>e<span class="o">)</span>
-<a id="__codelineno-31-73" name="__codelineno-31-73"></a><span class="w">            </span><span class="o">{</span>
-<a id="__codelineno-31-74" name="__codelineno-31-74"></a><span class="w">                </span><span class="nv">Code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span>int<span class="o">)</span>CodeErreurs.Acces
-<a id="__codelineno-31-75" name="__codelineno-31-75"></a><span class="w">            </span><span class="o">}</span><span class="p">;</span>
-<a id="__codelineno-31-76" name="__codelineno-31-76"></a><span class="w">        </span><span class="o">}</span>
-<a id="__codelineno-31-77" name="__codelineno-31-77"></a><span class="w">        </span>//<span class="w"> </span>on<span class="w"> </span>rend<span class="w"> </span>la<span class="w"> </span>liste<span class="w"> </span>sous<span class="w"> </span>forme<span class="w"> </span>de<span class="w"> </span>tableau
-<a id="__codelineno-31-78" name="__codelineno-31-78"></a><span class="w">        </span><span class="nv">TranchesImpot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>..<span class="w"> </span>tranches<span class="o">]</span><span class="p">;</span>
-<a id="__codelineno-31-79" name="__codelineno-31-79"></a><span class="w">    </span><span class="o">}</span>
+<span class="normal"><a href="#__codelineno-31-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-60" name="__codelineno-31-60"></a><span class="w">                </span><span class="c1">// erreur ?</span>
+<a id="__codelineno-31-61" name="__codelineno-31-61"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">code</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-31-62" name="__codelineno-31-62"></a><span class="w">                </span><span class="p">{</span>
+<a id="__codelineno-31-63" name="__codelineno-31-63"></a><span class="w">                    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ImpotException</span><span class="p">(</span><span class="s">$"Ligne n° {numLigne} incorrecte : [{ligne}]"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">code</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-31-64" name="__codelineno-31-64"></a><span class="w">                </span><span class="p">}</span>
+<a id="__codelineno-31-65" name="__codelineno-31-65"></a><span class="w">                </span><span class="c1">// on mémorise la nouvelle tranche d'impôt</span>
+<a id="__codelineno-31-66" name="__codelineno-31-66"></a><span class="w">                </span><span class="n">tranches</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TrancheImpot</span><span class="p">(</span><span class="n">limite</span><span class="p">,</span><span class="w"> </span><span class="n">coeffR</span><span class="p">,</span><span class="w"> </span><span class="n">coeffN</span><span class="p">));</span>
+<a id="__codelineno-31-67" name="__codelineno-31-67"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-31-68" name="__codelineno-31-68"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-31-69" name="__codelineno-31-69"></a><span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">UnauthorizedAccessException</span><span class="p">)</span>
+<a id="__codelineno-31-70" name="__codelineno-31-70"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-31-71" name="__codelineno-31-71"></a><span class="w">            </span><span class="c1">// erreur d'accès au fichier : on l'encapsule dans une ImpotException</span>
+<a id="__codelineno-31-72" name="__codelineno-31-72"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ImpotException</span><span class="p">(</span><span class="s">$"Erreur lors de la lecture du fichier {fileName}"</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<a id="__codelineno-31-73" name="__codelineno-31-73"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-31-74" name="__codelineno-31-74"></a><span class="w">                </span><span class="n">Code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">CodeErreurs</span><span class="p">.</span><span class="n">Acces</span>
+<a id="__codelineno-31-75" name="__codelineno-31-75"></a><span class="w">            </span><span class="p">};</span>
+<a id="__codelineno-31-76" name="__codelineno-31-76"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-31-77" name="__codelineno-31-77"></a><span class="w">        </span><span class="c1">// on rend la liste sous forme de tableau</span>
+<a id="__codelineno-31-78" name="__codelineno-31-78"></a><span class="w">        </span><span class="n">TranchesImpot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[..</span><span class="w"> </span><span class="n">tranches</span><span class="p">];</span>
+<a id="__codelineno-31-79" name="__codelineno-31-79"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 63, 72 : les erreurs sont encapsulées dans une <em>[ImpotException]</em>. Le code d&#x27;erreur, de type <em>[CodeErreurs]</em>, est converti en entier par <strong><em>[(int)code]</em></strong>.</li>
@@ -2379,15 +2379,15 @@
 <span class="normal"><a href="#__codelineno-32-6">6</a></span>
 <span class="normal"><a href="#__codelineno-32-7">7</a></span>
 <span class="normal"><a href="#__codelineno-32-8">8</a></span>
-<span class="normal"><a href="#__codelineno-32-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>[
-<a id="__codelineno-32-2" name="__codelineno-32-2"></a>  { "limite": 4962, "coeffR": 0, "coeffN": 0 },
-<a id="__codelineno-32-3" name="__codelineno-32-3"></a>  { "limite": 8382, "coeffR": 0.068, "coeffN": 291.09 },
-<a id="__codelineno-32-4" name="__codelineno-32-4"></a>  { "limite": 14753, "coeffR": 0.191, "coeffN": 1322.92 },
-<a id="__codelineno-32-5" name="__codelineno-32-5"></a>  { "limite": 23888, "coeffR": 0.283, "coeffN": 2668.39 },
-<a id="__codelineno-32-6" name="__codelineno-32-6"></a>  { "limite": 38868, "coeffR": 0.374, "coeffN": 4846.98 },
-<a id="__codelineno-32-7" name="__codelineno-32-7"></a>  { "limite": 47932, "coeffR": 0.426, "coeffN": 6883.66 },
-<a id="__codelineno-32-8" name="__codelineno-32-8"></a>  { "limite": 0, "coeffR": 0.481, "coeffN": 9505.54 }
-<a id="__codelineno-32-9" name="__codelineno-32-9"></a>]
+<span class="normal"><a href="#__codelineno-32-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="p">[</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"limite"</span><span class="p">:</span><span class="w"> </span><span class="mi">4962</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffR"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffN"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"limite"</span><span class="p">:</span><span class="w"> </span><span class="mi">8382</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffR"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.068</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffN"</span><span class="p">:</span><span class="w"> </span><span class="mf">291.09</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"limite"</span><span class="p">:</span><span class="w"> </span><span class="mi">14753</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffR"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.191</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffN"</span><span class="p">:</span><span class="w"> </span><span class="mf">1322.92</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"limite"</span><span class="p">:</span><span class="w"> </span><span class="mi">23888</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffR"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.283</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffN"</span><span class="p">:</span><span class="w"> </span><span class="mf">2668.39</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"limite"</span><span class="p">:</span><span class="w"> </span><span class="mi">38868</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffR"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.374</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffN"</span><span class="p">:</span><span class="w"> </span><span class="mf">4846.98</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"limite"</span><span class="p">:</span><span class="w"> </span><span class="mi">47932</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffR"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.426</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffN"</span><span class="p">:</span><span class="w"> </span><span class="mf">6883.66</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"limite"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffR"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.481</span><span class="p">,</span><span class="w"> </span><span class="nt">"coeffN"</span><span class="p">:</span><span class="w"> </span><span class="mf">9505.54</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9"></a><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <p>La classe <em>[JsonImpot]</em> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1"> 1</a></span>
@@ -2597,31 +2597,31 @@
 <span class="normal"><a href="#__codelineno-35-22">22</a></span>
 <span class="normal"><a href="#__codelineno-35-23">23</a></span>
 <span class="normal"><a href="#__codelineno-35-24">24</a></span>
-<span class="normal"><a href="#__codelineno-35-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="o">&gt;</span><span class="w"> </span><span class="n">dotnet</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">essai</span><span class="o">-</span><span class="n">dao</span><span class="p">.</span><span class="n">cs</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="o">---</span><span class="w"> </span><span class="n">HardwiredImpot</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="mi">4962</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span>
-<a id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="mi">8382</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">068</span><span class="p">:</span><span class="mi">291</span><span class="p">,</span><span class="mi">09</span>
-<a id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="mi">14753</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">191</span><span class="p">:</span><span class="mi">1322</span><span class="p">,</span><span class="mi">92</span>
-<a id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="mi">23888</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">283</span><span class="p">:</span><span class="mi">2668</span><span class="p">,</span><span class="mi">39</span>
-<a id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="mi">38868</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">374</span><span class="p">:</span><span class="mi">4846</span><span class="p">,</span><span class="mi">98</span>
-<a id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="mi">47932</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">426</span><span class="p">:</span><span class="mi">6883</span><span class="p">,</span><span class="mi">66</span>
-<a id="__codelineno-35-9" name="__codelineno-35-9"></a><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">481</span><span class="p">:</span><span class="mi">9505</span><span class="p">,</span><span class="mi">54</span>
-<a id="__codelineno-35-10" name="__codelineno-35-10"></a><span class="o">---</span><span class="w"> </span><span class="n">FileImpot</span>
-<a id="__codelineno-35-11" name="__codelineno-35-11"></a><span class="mi">4962</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span>
-<a id="__codelineno-35-12" name="__codelineno-35-12"></a><span class="mi">8382</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">068</span><span class="p">:</span><span class="mi">291</span><span class="p">,</span><span class="mi">09</span>
-<a id="__codelineno-35-13" name="__codelineno-35-13"></a><span class="mi">14753</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">191</span><span class="p">:</span><span class="mi">1322</span><span class="p">,</span><span class="mi">92</span>
-<a id="__codelineno-35-14" name="__codelineno-35-14"></a><span class="mi">23888</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">283</span><span class="p">:</span><span class="mi">2668</span><span class="p">,</span><span class="mi">39</span>
-<a id="__codelineno-35-15" name="__codelineno-35-15"></a><span class="mi">38868</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">374</span><span class="p">:</span><span class="mi">4846</span><span class="p">,</span><span class="mi">98</span>
-<a id="__codelineno-35-16" name="__codelineno-35-16"></a><span class="mi">47932</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">426</span><span class="p">:</span><span class="mi">6883</span><span class="p">,</span><span class="mi">66</span>
-<a id="__codelineno-35-17" name="__codelineno-35-17"></a><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">481</span><span class="p">:</span><span class="mi">9505</span><span class="p">,</span><span class="mi">54</span>
-<a id="__codelineno-35-18" name="__codelineno-35-18"></a><span class="o">---</span><span class="w"> </span><span class="n">JsonImpot</span>
-<a id="__codelineno-35-19" name="__codelineno-35-19"></a><span class="mi">4962</span><span class="p">:</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span>
-<a id="__codelineno-35-20" name="__codelineno-35-20"></a><span class="mi">8382</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">068</span><span class="p">:</span><span class="mi">291</span><span class="p">,</span><span class="mi">09</span>
-<a id="__codelineno-35-21" name="__codelineno-35-21"></a><span class="mi">14753</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">191</span><span class="p">:</span><span class="mi">1322</span><span class="p">,</span><span class="mi">92</span>
-<a id="__codelineno-35-22" name="__codelineno-35-22"></a><span class="mi">23888</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">283</span><span class="p">:</span><span class="mi">2668</span><span class="p">,</span><span class="mi">39</span>
-<a id="__codelineno-35-23" name="__codelineno-35-23"></a><span class="mi">38868</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">374</span><span class="p">:</span><span class="mi">4846</span><span class="p">,</span><span class="mi">98</span>
-<a id="__codelineno-35-24" name="__codelineno-35-24"></a><span class="mi">47932</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">426</span><span class="p">:</span><span class="mi">6883</span><span class="p">,</span><span class="mi">66</span>
-<a id="__codelineno-35-25" name="__codelineno-35-25"></a><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="mi">481</span><span class="p">:</span><span class="mi">9505</span><span class="p">,</span><span class="mi">54</span>
+<span class="normal"><a href="#__codelineno-35-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a>&gt; dotnet run essai-dao.cs
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a>--- HardwiredImpot
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a>4962:0:0
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>8382:0,068:291,09
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a>14753:0,191:1322,92
+<a id="__codelineno-35-6" name="__codelineno-35-6"></a>23888:0,283:2668,39
+<a id="__codelineno-35-7" name="__codelineno-35-7"></a>38868:0,374:4846,98
+<a id="__codelineno-35-8" name="__codelineno-35-8"></a>47932:0,426:6883,66
+<a id="__codelineno-35-9" name="__codelineno-35-9"></a>0:0,481:9505,54
+<a id="__codelineno-35-10" name="__codelineno-35-10"></a>--- FileImpot
+<a id="__codelineno-35-11" name="__codelineno-35-11"></a>4962:0:0
+<a id="__codelineno-35-12" name="__codelineno-35-12"></a>8382:0,068:291,09
+<a id="__codelineno-35-13" name="__codelineno-35-13"></a>14753:0,191:1322,92
+<a id="__codelineno-35-14" name="__codelineno-35-14"></a>23888:0,283:2668,39
+<a id="__codelineno-35-15" name="__codelineno-35-15"></a>38868:0,374:4846,98
+<a id="__codelineno-35-16" name="__codelineno-35-16"></a>47932:0,426:6883,66
+<a id="__codelineno-35-17" name="__codelineno-35-17"></a>0:0,481:9505,54
+<a id="__codelineno-35-18" name="__codelineno-35-18"></a>--- JsonImpot
+<a id="__codelineno-35-19" name="__codelineno-35-19"></a>4962:0:0
+<a id="__codelineno-35-20" name="__codelineno-35-20"></a>8382:0,068:291,09
+<a id="__codelineno-35-21" name="__codelineno-35-21"></a>14753:0,191:1322,92
+<a id="__codelineno-35-22" name="__codelineno-35-22"></a>23888:0,283:2668,39
+<a id="__codelineno-35-23" name="__codelineno-35-23"></a>38868:0,374:4846,98
+<a id="__codelineno-35-24" name="__codelineno-35-24"></a>47932:0,426:6883,66
+<a id="__codelineno-35-25" name="__codelineno-35-25"></a>0:0,481:9505,54
 </code></pre></div></td></tr></table></div>
 <p>Les trois implémentations fournissent les mêmes tranches. L&#x27;affichage des nombres <em>[decimal]</em> suit la culture fr-FR de l&#x27;utilisateur : virgule décimale.</p>
 <h3 id="643-la-couche-metier">6.4.3. <span style="color: #1f4d78">La couche <em>[metier]</em></span></h3>
@@ -2639,20 +2639,20 @@
 <span class="normal"><a href="#__codelineno-36-11">11</a></span>
 <span class="normal"><a href="#__codelineno-36-12">12</a></span>
 <span class="normal"><a href="#__codelineno-36-13">13</a></span>
-<span class="normal"><a href="#__codelineno-36-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+<span class="normal"><a href="#__codelineno-36-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-36-2" name="__codelineno-36-2"></a>
-<a id="__codelineno-36-3" name="__codelineno-36-3"></a>  &lt;PropertyGroup&gt;
-<a id="__codelineno-36-4" name="__codelineno-36-4"></a>    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;
-<a id="__codelineno-36-5" name="__codelineno-36-5"></a>    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
-<a id="__codelineno-36-6" name="__codelineno-36-6"></a>    &lt;Nullable&gt;enable&lt;/Nullable&gt;
-<a id="__codelineno-36-7" name="__codelineno-36-7"></a>  &lt;/PropertyGroup&gt;
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-36-8" name="__codelineno-36-8"></a>
-<a id="__codelineno-36-9" name="__codelineno-36-9"></a>  &lt;ItemGroup&gt;
-<a id="__codelineno-36-10" name="__codelineno-36-10"></a>    &lt;!-- la couche [metier] utilise la couche [dao] --&gt;
-<a id="__codelineno-36-11" name="__codelineno-36-11"></a>    &lt;ProjectReference Include="../Impots.Dao/Impots.Dao.csproj" /&gt;
-<a id="__codelineno-36-12" name="__codelineno-36-12"></a>  &lt;/ItemGroup&gt;
+<a id="__codelineno-36-9" name="__codelineno-36-9"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-36-10" name="__codelineno-36-10"></a><span class="w">    </span><span class="cm">&lt;!-- la couche [metier] utilise la couche [dao] --&gt;</span>
+<a id="__codelineno-36-11" name="__codelineno-36-11"></a><span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"../Impots.Dao/Impots.Dao.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-36-12" name="__codelineno-36-12"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-36-13" name="__codelineno-36-13"></a>
-<a id="__codelineno-36-14" name="__codelineno-36-14"></a>&lt;/Project&gt;
+<a id="__codelineno-36-14" name="__codelineno-36-14"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 11 : la référence au projet <em>[Impots.Dao]</em> ajoutée par <em>[dotnet add reference]</em>. Le cours de 2008 faisait référencer la DLL compilée de la couche <em>[dao]</em>, qu&#x27;il fallait aller chercher dans un dossier <em>[bin]</em> ; une référence de projet à projet compile <em>[Impots.Dao]</em> avant <em>[Impots.Metier]</em> et utilise toujours sa dernière version.</li>
@@ -2742,24 +2742,24 @@
 <span class="normal"><a href="#__codelineno-40-15">15</a></span>
 <span class="normal"><a href="#__codelineno-40-16">16</a></span>
 <span class="normal"><a href="#__codelineno-40-17">17</a></span>
-<span class="normal"><a href="#__codelineno-40-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+<span class="normal"><a href="#__codelineno-40-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-40-2" name="__codelineno-40-2"></a>
-<a id="__codelineno-40-3" name="__codelineno-40-3"></a>  &lt;PropertyGroup&gt;
-<a id="__codelineno-40-4" name="__codelineno-40-4"></a>    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;
-<a id="__codelineno-40-5" name="__codelineno-40-5"></a>    &lt;LangVersion&gt;latest&lt;/LangVersion&gt;
-<a id="__codelineno-40-6" name="__codelineno-40-6"></a>    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
-<a id="__codelineno-40-7" name="__codelineno-40-7"></a>    &lt;Nullable&gt;enable&lt;/Nullable&gt;
-<a id="__codelineno-40-8" name="__codelineno-40-8"></a>  &lt;/PropertyGroup&gt;
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5"></a><span class="w">    </span><span class="nt">&lt;LangVersion&gt;</span>latest<span class="nt">&lt;/LangVersion&gt;</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-40-9" name="__codelineno-40-9"></a>
-<a id="__codelineno-40-10" name="__codelineno-40-10"></a>  &lt;ItemGroup&gt;
-<a id="__codelineno-40-11" name="__codelineno-40-11"></a>    &lt;PackageReference Include="MSTest" Version="4.0.2" /&gt;
-<a id="__codelineno-40-12" name="__codelineno-40-12"></a>  &lt;/ItemGroup&gt;
+<a id="__codelineno-40-10" name="__codelineno-40-10"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-40-11" name="__codelineno-40-11"></a><span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MSTest"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"4.0.2"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-40-12" name="__codelineno-40-12"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-40-13" name="__codelineno-40-13"></a>
-<a id="__codelineno-40-14" name="__codelineno-40-14"></a>  &lt;ItemGroup&gt;
-<a id="__codelineno-40-15" name="__codelineno-40-15"></a>    &lt;Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" /&gt;
-<a id="__codelineno-40-16" name="__codelineno-40-16"></a>  &lt;/ItemGroup&gt;
+<a id="__codelineno-40-14" name="__codelineno-40-14"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-40-15" name="__codelineno-40-15"></a><span class="w">    </span><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.VisualStudio.TestTools.UnitTesting"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-40-16" name="__codelineno-40-16"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-40-17" name="__codelineno-40-17"></a>
-<a id="__codelineno-40-18" name="__codelineno-40-18"></a>&lt;/Project&gt;
+<a id="__codelineno-40-18" name="__codelineno-40-18"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 11 : le projet utilise le paquet NuGet <em>[MSTest]</em>. Ce paquet regroupe le framework (les attributs et la classe <em>[Assert]</em>), l&#x27;adaptateur qui permet à <strong><em>[dotnet test]</em></strong> de trouver et d&#x27;exécuter les tests, et des analyseurs de code qui signalent par des avertissements les tests mal écrits ;</li>
@@ -2767,8 +2767,8 @@
 </ul>
 <p>Le modèle crée aussi un fichier <em>[MSTestSettings.cs]</em>, qui demande l&#x27;exécution en parallèle des tests. Nous le remplaçons par le suivant, pour que les tests s&#x27;exécutent les uns après les autres et que leurs affichages apparaissent dans un ordre stable :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span>
-<span class="normal"><a href="#__codelineno-41-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a>// les tests sont exécutés les uns après les autres (affichage dans un ordre stable)
-<a id="__codelineno-41-2" name="__codelineno-41-2"></a>[assembly: DoNotParallelize]
+<span class="normal"><a href="#__codelineno-41-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="c1">// les tests sont exécutés les uns après les autres (affichage dans un ordre stable)</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="na">[assembly: DoNotParallelize]</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 2 : un attribut qui s&#x27;applique à tout l&#x27;assemblage (la DLL) et non à une classe particulière.</li>
@@ -3029,68 +3029,68 @@
 <span class="normal"><a href="#__codelineno-44-59">59</a></span>
 <span class="normal"><a href="#__codelineno-44-60">60</a></span>
 <span class="normal"><a href="#__codelineno-44-61">61</a></span>
-<span class="normal"><a href="#__codelineno-44-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1"></a>namespace TestsDemo;
+<span class="normal"><a href="#__codelineno-44-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">TestsDemo</span><span class="p">;</span>
 <a id="__codelineno-44-2" name="__codelineno-44-2"></a>
-<a id="__codelineno-44-3" name="__codelineno-44-3"></a>// quelques autres assertions de MSTest
-<a id="__codelineno-44-4" name="__codelineno-44-4"></a>[TestClass]
-<a id="__codelineno-44-5" name="__codelineno-44-5"></a>public class Tests2
-<a id="__codelineno-44-6" name="__codelineno-44-6"></a>{
-<a id="__codelineno-44-7" name="__codelineno-44-7"></a>    // booléens, null, références
-<a id="__codelineno-44-8" name="__codelineno-44-8"></a>    [TestMethod]
-<a id="__codelineno-44-9" name="__codelineno-44-9"></a>    public void T3()
-<a id="__codelineno-44-10" name="__codelineno-44-10"></a>    {
-<a id="__codelineno-44-11" name="__codelineno-44-11"></a>        bool vrai = 1 <span class="p">&lt;</span> <span class="nt">2</span><span class="err">,</span> <span class="na">faux </span><span class="o">=</span> <span class="s">1</span> <span class="p">&gt;</span> 2;
-<a id="__codelineno-44-12" name="__codelineno-44-12"></a>        Assert.IsTrue(vrai);
-<a id="__codelineno-44-13" name="__codelineno-44-13"></a>        Assert.IsFalse(faux);
-<a id="__codelineno-44-14" name="__codelineno-44-14"></a>        object obj1 = new(), obj3 = obj1;
-<a id="__codelineno-44-15" name="__codelineno-44-15"></a>        object? obj2 = null;
-<a id="__codelineno-44-16" name="__codelineno-44-16"></a>        Assert.IsNotNull(obj1);
-<a id="__codelineno-44-17" name="__codelineno-44-17"></a>        Assert.IsNull(obj2);
-<a id="__codelineno-44-18" name="__codelineno-44-18"></a>        Assert.AreSame(obj1, obj3);
-<a id="__codelineno-44-19" name="__codelineno-44-19"></a>        Assert.AreNotSame(obj1, new object());
-<a id="__codelineno-44-20" name="__codelineno-44-20"></a>    }
+<a id="__codelineno-44-3" name="__codelineno-44-3"></a><span class="c1">// quelques autres assertions de MSTest</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4"></a><span class="na">[TestClass]</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tests2</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6"></a><span class="p">{</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7"></a><span class="w">    </span><span class="c1">// booléens, null, références</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8"></a><span class="w">    </span><span class="na">[TestMethod]</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">T3</span><span class="p">()</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-44-11" name="__codelineno-44-11"></a><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">vrai</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">faux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-44-12" name="__codelineno-44-12"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">vrai</span><span class="p">);</span>
+<a id="__codelineno-44-13" name="__codelineno-44-13"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsFalse</span><span class="p">(</span><span class="n">faux</span><span class="p">);</span>
+<a id="__codelineno-44-14" name="__codelineno-44-14"></a><span class="w">        </span><span class="kt">object</span><span class="w"> </span><span class="n">obj1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(),</span><span class="w"> </span><span class="n">obj3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj1</span><span class="p">;</span>
+<a id="__codelineno-44-15" name="__codelineno-44-15"></a><span class="w">        </span><span class="kt">object?</span><span class="w"> </span><span class="n">obj2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a id="__codelineno-44-16" name="__codelineno-44-16"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsNotNull</span><span class="p">(</span><span class="n">obj1</span><span class="p">);</span>
+<a id="__codelineno-44-17" name="__codelineno-44-17"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsNull</span><span class="p">(</span><span class="n">obj2</span><span class="p">);</span>
+<a id="__codelineno-44-18" name="__codelineno-44-18"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">AreSame</span><span class="p">(</span><span class="n">obj1</span><span class="p">,</span><span class="w"> </span><span class="n">obj3</span><span class="p">);</span>
+<a id="__codelineno-44-19" name="__codelineno-44-19"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">AreNotSame</span><span class="p">(</span><span class="n">obj1</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">object</span><span class="p">());</span>
+<a id="__codelineno-44-20" name="__codelineno-44-20"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-44-21" name="__codelineno-44-21"></a>
-<a id="__codelineno-44-22" name="__codelineno-44-22"></a>    // réels : égalité à delta près
-<a id="__codelineno-44-23" name="__codelineno-44-23"></a>    [TestMethod]
-<a id="__codelineno-44-24" name="__codelineno-44-24"></a>    public void T4()
-<a id="__codelineno-44-25" name="__codelineno-44-25"></a>    {
-<a id="__codelineno-44-26" name="__codelineno-44-26"></a>        double d1 = 0.1 + 0.2, d2 = 0.3;
-<a id="__codelineno-44-27" name="__codelineno-44-27"></a>        Assert.AreNotEqual(d2, d1);
-<a id="__codelineno-44-28" name="__codelineno-44-28"></a>        Assert.AreEqual(d2, d1, 1e-6);
-<a id="__codelineno-44-29" name="__codelineno-44-29"></a>    }
+<a id="__codelineno-44-22" name="__codelineno-44-22"></a><span class="w">    </span><span class="c1">// réels : égalité à delta près</span>
+<a id="__codelineno-44-23" name="__codelineno-44-23"></a><span class="w">    </span><span class="na">[TestMethod]</span>
+<a id="__codelineno-44-24" name="__codelineno-44-24"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">T4</span><span class="p">()</span>
+<a id="__codelineno-44-25" name="__codelineno-44-25"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-44-26" name="__codelineno-44-26"></a><span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3</span><span class="p">;</span>
+<a id="__codelineno-44-27" name="__codelineno-44-27"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">AreNotEqual</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="n">d1</span><span class="p">);</span>
+<a id="__codelineno-44-28" name="__codelineno-44-28"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">);</span>
+<a id="__codelineno-44-29" name="__codelineno-44-29"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-44-30" name="__codelineno-44-30"></a>
-<a id="__codelineno-44-31" name="__codelineno-44-31"></a>    // chaînes et collections
-<a id="__codelineno-44-32" name="__codelineno-44-32"></a>    [TestMethod]
-<a id="__codelineno-44-33" name="__codelineno-44-33"></a>    public void T5()
-<a id="__codelineno-44-34" name="__codelineno-44-34"></a>    {
-<a id="__codelineno-44-35" name="__codelineno-44-35"></a>        string message = "Ligne n° 3 incorrecte";
-<a id="__codelineno-44-36" name="__codelineno-44-36"></a>        Assert.StartsWith("Ligne", message);
-<a id="__codelineno-44-37" name="__codelineno-44-37"></a>        Assert.Contains("incorrecte", message);
-<a id="__codelineno-44-38" name="__codelineno-44-38"></a>        int[] nombres = [1, 2, 3];
-<a id="__codelineno-44-39" name="__codelineno-44-39"></a>        Assert.HasCount(3, nombres);
-<a id="__codelineno-44-40" name="__codelineno-44-40"></a>        Assert.Contains(2, nombres);
-<a id="__codelineno-44-41" name="__codelineno-44-41"></a>    }
+<a id="__codelineno-44-31" name="__codelineno-44-31"></a><span class="w">    </span><span class="c1">// chaînes et collections</span>
+<a id="__codelineno-44-32" name="__codelineno-44-32"></a><span class="w">    </span><span class="na">[TestMethod]</span>
+<a id="__codelineno-44-33" name="__codelineno-44-33"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">T5</span><span class="p">()</span>
+<a id="__codelineno-44-34" name="__codelineno-44-34"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-44-35" name="__codelineno-44-35"></a><span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Ligne n° 3 incorrecte"</span><span class="p">;</span>
+<a id="__codelineno-44-36" name="__codelineno-44-36"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">StartsWith</span><span class="p">(</span><span class="s">"Ligne"</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<a id="__codelineno-44-37" name="__codelineno-44-37"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="s">"incorrecte"</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<a id="__codelineno-44-38" name="__codelineno-44-38"></a><span class="w">        </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nombres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">];</span>
+<a id="__codelineno-44-39" name="__codelineno-44-39"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">HasCount</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">nombres</span><span class="p">);</span>
+<a id="__codelineno-44-40" name="__codelineno-44-40"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">nombres</span><span class="p">);</span>
+<a id="__codelineno-44-41" name="__codelineno-44-41"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-44-42" name="__codelineno-44-42"></a>
-<a id="__codelineno-44-43" name="__codelineno-44-43"></a>    // exceptions : le test réussit si l'exception attendue est lancée
-<a id="__codelineno-44-44" name="__codelineno-44-44"></a>    [TestMethod]
-<a id="__codelineno-44-45" name="__codelineno-44-45"></a>    public void T6()
-<a id="__codelineno-44-46" name="__codelineno-44-46"></a>    {
-<a id="__codelineno-44-47" name="__codelineno-44-47"></a>        int[] nombres = [1, 2, 3];
-<a id="__codelineno-44-48" name="__codelineno-44-48"></a>        Assert.ThrowsExactly<span class="p">&lt;</span><span class="nt">IndexOutOfRangeException</span><span class="p">&gt;</span>(() =&gt; nombres[3]);
-<a id="__codelineno-44-49" name="__codelineno-44-49"></a>        FormatException e = Assert.ThrowsExactly<span class="p">&lt;</span><span class="nt">FormatException</span><span class="p">&gt;</span>(() =&gt; int.Parse("x"));
-<a id="__codelineno-44-50" name="__codelineno-44-50"></a>        Assert.IsNotNull(e.Message);
-<a id="__codelineno-44-51" name="__codelineno-44-51"></a>    }
+<a id="__codelineno-44-43" name="__codelineno-44-43"></a><span class="w">    </span><span class="c1">// exceptions : le test réussit si l'exception attendue est lancée</span>
+<a id="__codelineno-44-44" name="__codelineno-44-44"></a><span class="w">    </span><span class="na">[TestMethod]</span>
+<a id="__codelineno-44-45" name="__codelineno-44-45"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">T6</span><span class="p">()</span>
+<a id="__codelineno-44-46" name="__codelineno-44-46"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-44-47" name="__codelineno-44-47"></a><span class="w">        </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="n">nombres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">];</span>
+<a id="__codelineno-44-48" name="__codelineno-44-48"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">ThrowsExactly</span><span class="o">&lt;</span><span class="n">IndexOutOfRangeException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">nombres</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+<a id="__codelineno-44-49" name="__codelineno-44-49"></a><span class="w">        </span><span class="n">FormatException</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assert</span><span class="p">.</span><span class="n">ThrowsExactly</span><span class="o">&lt;</span><span class="n">FormatException</span><span class="o">&gt;</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="s">"x"</span><span class="p">));</span>
+<a id="__codelineno-44-50" name="__codelineno-44-50"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsNotNull</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<a id="__codelineno-44-51" name="__codelineno-44-51"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-44-52" name="__codelineno-44-52"></a>
-<a id="__codelineno-44-53" name="__codelineno-44-53"></a>    // un test paramétré : une exécution par attribut [DataRow]
-<a id="__codelineno-44-54" name="__codelineno-44-54"></a>    [TestMethod]
-<a id="__codelineno-44-55" name="__codelineno-44-55"></a>    [DataRow(1, 1, 2)]
-<a id="__codelineno-44-56" name="__codelineno-44-56"></a>    [DataRow(2, 3, 5)]
-<a id="__codelineno-44-57" name="__codelineno-44-57"></a>    [DataRow(-1, 1, 0)]
-<a id="__codelineno-44-58" name="__codelineno-44-58"></a>    public void T7(int a, int b, int somme)
-<a id="__codelineno-44-59" name="__codelineno-44-59"></a>    {
-<a id="__codelineno-44-60" name="__codelineno-44-60"></a>        Assert.AreEqual(somme, a + b);
-<a id="__codelineno-44-61" name="__codelineno-44-61"></a>    }
-<a id="__codelineno-44-62" name="__codelineno-44-62"></a>}
+<a id="__codelineno-44-53" name="__codelineno-44-53"></a><span class="w">    </span><span class="c1">// un test paramétré : une exécution par attribut [DataRow]</span>
+<a id="__codelineno-44-54" name="__codelineno-44-54"></a><span class="w">    </span><span class="na">[TestMethod]</span>
+<a id="__codelineno-44-55" name="__codelineno-44-55"></a><span class="w">    </span><span class="na">[DataRow(1, 1, 2)]</span>
+<a id="__codelineno-44-56" name="__codelineno-44-56"></a><span class="w">    </span><span class="na">[DataRow(2, 3, 5)]</span>
+<a id="__codelineno-44-57" name="__codelineno-44-57"></a><span class="w">    </span><span class="na">[DataRow(-1, 1, 0)]</span>
+<a id="__codelineno-44-58" name="__codelineno-44-58"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">T7</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">somme</span><span class="p">)</span>
+<a id="__codelineno-44-59" name="__codelineno-44-59"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-44-60" name="__codelineno-44-60"></a><span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">AreEqual</span><span class="p">(</span><span class="n">somme</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-44-61" name="__codelineno-44-61"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-44-62" name="__codelineno-44-62"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 12-13 : vérifient qu&#x27;une expression booléenne est vraie ou fausse ;</li>
@@ -3136,36 +3136,36 @@
 <span class="normal"><a href="#__codelineno-45-27">27</a></span>
 <span class="normal"><a href="#__codelineno-45-28">28</a></span>
 <span class="normal"><a href="#__codelineno-45-29">29</a></span>
-<span class="normal"><a href="#__codelineno-45-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="o">&lt;</span><span class="n">Project</span><span class="w"> </span><span class="n">Sdk</span><span class="o">=</span><span class="ss">"Microsoft.NET.Sdk"</span><span class="o">&gt;</span>
+<span class="normal"><a href="#__codelineno-45-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-45-2" name="__codelineno-45-2"></a>
-<a id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-45-4" name="__codelineno-45-4"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TargetFramework</span><span class="o">&gt;</span><span class="n">net10</span><span class="p">.</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">TargetFramework</span><span class="o">&gt;</span>
-<a id="__codelineno-45-5" name="__codelineno-45-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">LangVersion</span><span class="o">&gt;</span><span class="n">latest</span><span class="o">&lt;/</span><span class="n">LangVersion</span><span class="o">&gt;</span>
-<a id="__codelineno-45-6" name="__codelineno-45-6"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span>
-<a id="__codelineno-45-7" name="__codelineno-45-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">Nullable</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="k">Nullable</span><span class="o">&gt;</span>
-<a id="__codelineno-45-8" name="__codelineno-45-8"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5"></a><span class="w">    </span><span class="nt">&lt;LangVersion&gt;</span>latest<span class="nt">&lt;/LangVersion&gt;</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-45-9" name="__codelineno-45-9"></a>
-<a id="__codelineno-45-10" name="__codelineno-45-10"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-45-11" name="__codelineno-45-11"></a><span class="w">    </span><span class="o">&lt;!</span><span class="c1">-- le framework de tests MSTest --&gt;</span>
-<a id="__codelineno-45-12" name="__codelineno-45-12"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="ss">"MSTest"</span><span class="w"> </span><span class="k">Version</span><span class="o">=</span><span class="ss">"4.0.2"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-45-13" name="__codelineno-45-13"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-45-11" name="__codelineno-45-11"></a><span class="w">    </span><span class="cm">&lt;!-- le framework de tests MSTest --&gt;</span>
+<a id="__codelineno-45-12" name="__codelineno-45-12"></a><span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"MSTest"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"4.0.2"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-45-13" name="__codelineno-45-13"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-45-14" name="__codelineno-45-14"></a>
-<a id="__codelineno-45-15" name="__codelineno-45-15"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-45-16" name="__codelineno-45-16"></a><span class="w">    </span><span class="o">&lt;!</span><span class="c1">-- les couches testées --&gt;</span>
-<a id="__codelineno-45-17" name="__codelineno-45-17"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ProjectReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="ss">"../Impots.Dao/Impots.Dao.csproj"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-45-18" name="__codelineno-45-18"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ProjectReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="ss">"../Impots.Metier/Impots.Metier.csproj"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-45-19" name="__codelineno-45-19"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-45-15" name="__codelineno-45-15"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-45-16" name="__codelineno-45-16"></a><span class="w">    </span><span class="cm">&lt;!-- les couches testées --&gt;</span>
+<a id="__codelineno-45-17" name="__codelineno-45-17"></a><span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"../Impots.Dao/Impots.Dao.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-45-18" name="__codelineno-45-18"></a><span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"../Impots.Metier/Impots.Metier.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-45-19" name="__codelineno-45-19"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-45-20" name="__codelineno-45-20"></a>
-<a id="__codelineno-45-21" name="__codelineno-45-21"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-45-22" name="__codelineno-45-22"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">Using</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="ss">"Microsoft.VisualStudio.TestTools.UnitTesting"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-45-23" name="__codelineno-45-23"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-45-21" name="__codelineno-45-21"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-45-22" name="__codelineno-45-22"></a><span class="w">    </span><span class="nt">&lt;Using</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.VisualStudio.TestTools.UnitTesting"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-45-23" name="__codelineno-45-23"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-45-24" name="__codelineno-45-24"></a>
-<a id="__codelineno-45-25" name="__codelineno-45-25"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-45-26" name="__codelineno-45-26"></a><span class="w">    </span><span class="o">&lt;!</span><span class="c1">-- un fichier de données incorrect, pour tester les erreurs --&gt;</span>
-<a id="__codelineno-45-27" name="__codelineno-45-27"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">None</span><span class="w"> </span><span class="k">Update</span><span class="o">=</span><span class="ss">"DataImpotInvalide.txt"</span><span class="w"> </span><span class="n">CopyToOutputDirectory</span><span class="o">=</span><span class="ss">"PreserveNewest"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-45-28" name="__codelineno-45-28"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-45-25" name="__codelineno-45-25"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-45-26" name="__codelineno-45-26"></a><span class="w">    </span><span class="cm">&lt;!-- un fichier de données incorrect, pour tester les erreurs --&gt;</span>
+<a id="__codelineno-45-27" name="__codelineno-45-27"></a><span class="w">    </span><span class="nt">&lt;None</span><span class="w"> </span><span class="na">Update=</span><span class="s">"DataImpotInvalide.txt"</span><span class="w"> </span><span class="na">CopyToOutputDirectory=</span><span class="s">"PreserveNewest"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-45-28" name="__codelineno-45-28"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-45-29" name="__codelineno-45-29"></a>
-<a id="__codelineno-45-30" name="__codelineno-45-30"></a><span class="o">&lt;/</span><span class="n">Project</span><span class="o">&gt;</span>
+<a id="__codelineno-45-30" name="__codelineno-45-30"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 17-18 : les couches testées ;</li>
@@ -3482,33 +3482,33 @@
 <span class="normal"><a href="#__codelineno-48-24">24</a></span>
 <span class="normal"><a href="#__codelineno-48-25">25</a></span>
 <span class="normal"><a href="#__codelineno-48-26">26</a></span>
-<span class="normal"><a href="#__codelineno-48-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1"></a><span class="o">&gt;</span><span class="w"> </span><span class="n">dotnet</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">--</span><span class="n">logger</span><span class="w"> </span><span class="s2">"console;verbosity=normal"</span>
-<a id="__codelineno-48-2" name="__codelineno-48-2"></a><span class="n">S</span><span class="err">érie de tests pour bin/Debug/net10.0/Impots.Tests.dll (.NETCoreApp,Version=v10.0)</span>
-<a id="__codelineno-48-3" name="__codelineno-48-3"></a><span class="n">Version</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">VSTest</span><span class="w"> </span><span class="mf">18.0.2</span><span class="w"> </span><span class="p">(</span><span class="n">x64</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-48-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1"></a>&gt; dotnet test --logger "console;verbosity=normal"
+<a id="__codelineno-48-2" name="__codelineno-48-2"></a>Série de tests pour bin/Debug/net10.0/Impots.Tests.dll (.NETCoreApp,Version=v10.0)
+<a id="__codelineno-48-3" name="__codelineno-48-3"></a>Version de VSTest 18.0.2 (x64)
 <a id="__codelineno-48-4" name="__codelineno-48-4"></a>
-<a id="__codelineno-48-5" name="__codelineno-48-5"></a><span class="n">D</span><span class="err">émarrage de l'exécution de tests, patientez...</span>
-<a id="__codelineno-48-6" name="__codelineno-48-6"></a><span class="n">Au</span><span class="w"> </span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">fichiers</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">ont</span><span class="w"> </span><span class="n">correspondu</span><span class="w"> </span><span class="n">au</span><span class="w"> </span><span class="n">mod</span><span class="err">èle spécifié.</span>
-<a id="__codelineno-48-7" name="__codelineno-48-7"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi TranchesImpot ("HardwiredImpot") [9 ms]</span>
-<a id="__codelineno-48-8" name="__codelineno-48-8"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi TranchesImpot ("FileImpot") [2 ms]</span>
-<a id="__codelineno-48-9" name="__codelineno-48-9"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi TranchesImpot ("JsonImpot") [36 ms]</span>
-<a id="__codelineno-48-10" name="__codelineno-48-10"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi MemesTranches [1 ms]</span>
-<a id="__codelineno-48-11" name="__codelineno-48-11"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi FichierAbsent [2 ms]</span>
-<a id="__codelineno-48-12" name="__codelineno-48-12"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi LigneIncorrecte [&lt; 1 ms]</span>
-<a id="__codelineno-48-13" name="__codelineno-48-13"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi FichierJsonAbsent [&lt; 1 ms]</span>
-<a id="__codelineno-48-14" name="__codelineno-48-14"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi CalculerImpot (True,2,60000,4282) [1 ms]</span>
-<a id="__codelineno-48-15" name="__codelineno-48-15"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi CalculerImpot (False,3,60000,4282) [&lt; 1 ms]</span>
-<a id="__codelineno-48-16" name="__codelineno-48-16"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi CalculerImpot (True,3,60000,2959) [&lt; 1 ms]</span>
-<a id="__codelineno-48-17" name="__codelineno-48-17"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi CalculerImpot (False,0,60000,11519) [&lt; 1 ms]</span>
-<a id="__codelineno-48-18" name="__codelineno-48-18"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi CalculerImpot (False,3,6000,0) [&lt; 1 ms]</span>
-<a id="__codelineno-48-19" name="__codelineno-48-19"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi CalculerImpot (False,3,600000,179275) [&lt; 1 ms]</span>
-<a id="__codelineno-48-20" name="__codelineno-48-20"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi TranchesInchangees [&lt; 1 ms]</span>
-<a id="__codelineno-48-21" name="__codelineno-48-21"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi ParametresNegatifs [&lt; 1 ms]</span>
-<a id="__codelineno-48-22" name="__codelineno-48-22"></a><span class="w">  </span><span class="n">R</span><span class="err">éussi AvecDaoFactice [&lt; 1 ms]</span>
+<a id="__codelineno-48-5" name="__codelineno-48-5"></a>Démarrage de l'exécution de tests, patientez...
+<a id="__codelineno-48-6" name="__codelineno-48-6"></a>Au total, 1 fichiers de test ont correspondu au modèle spécifié.
+<a id="__codelineno-48-7" name="__codelineno-48-7"></a>  Réussi TranchesImpot ("HardwiredImpot") [9 ms]
+<a id="__codelineno-48-8" name="__codelineno-48-8"></a>  Réussi TranchesImpot ("FileImpot") [2 ms]
+<a id="__codelineno-48-9" name="__codelineno-48-9"></a>  Réussi TranchesImpot ("JsonImpot") [36 ms]
+<a id="__codelineno-48-10" name="__codelineno-48-10"></a>  Réussi MemesTranches [1 ms]
+<a id="__codelineno-48-11" name="__codelineno-48-11"></a>  Réussi FichierAbsent [2 ms]
+<a id="__codelineno-48-12" name="__codelineno-48-12"></a>  Réussi LigneIncorrecte [&lt; 1 ms]
+<a id="__codelineno-48-13" name="__codelineno-48-13"></a>  Réussi FichierJsonAbsent [&lt; 1 ms]
+<a id="__codelineno-48-14" name="__codelineno-48-14"></a>  Réussi CalculerImpot (True,2,60000,4282) [1 ms]
+<a id="__codelineno-48-15" name="__codelineno-48-15"></a>  Réussi CalculerImpot (False,3,60000,4282) [&lt; 1 ms]
+<a id="__codelineno-48-16" name="__codelineno-48-16"></a>  Réussi CalculerImpot (True,3,60000,2959) [&lt; 1 ms]
+<a id="__codelineno-48-17" name="__codelineno-48-17"></a>  Réussi CalculerImpot (False,0,60000,11519) [&lt; 1 ms]
+<a id="__codelineno-48-18" name="__codelineno-48-18"></a>  Réussi CalculerImpot (False,3,6000,0) [&lt; 1 ms]
+<a id="__codelineno-48-19" name="__codelineno-48-19"></a>  Réussi CalculerImpot (False,3,600000,179275) [&lt; 1 ms]
+<a id="__codelineno-48-20" name="__codelineno-48-20"></a>  Réussi TranchesInchangees [&lt; 1 ms]
+<a id="__codelineno-48-21" name="__codelineno-48-21"></a>  Réussi ParametresNegatifs [&lt; 1 ms]
+<a id="__codelineno-48-22" name="__codelineno-48-22"></a>  Réussi AvecDaoFactice [&lt; 1 ms]
 <a id="__codelineno-48-23" name="__codelineno-48-23"></a>
-<a id="__codelineno-48-24" name="__codelineno-48-24"></a><span class="n">S</span><span class="err">érie de tests réussie.</span>
-<a id="__codelineno-48-25" name="__codelineno-48-25"></a><span class="n">Nombre</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">16</span>
-<a id="__codelineno-48-26" name="__codelineno-48-26"></a><span class="w">     </span><span class="n">R</span><span class="err">éussi(s) : 16</span>
-<a id="__codelineno-48-27" name="__codelineno-48-27"></a><span class="w"> </span><span class="n">Dur</span><span class="err">ée totale : 0,8513 Secondes</span>
+<a id="__codelineno-48-24" name="__codelineno-48-24"></a>Série de tests réussie.
+<a id="__codelineno-48-25" name="__codelineno-48-25"></a>Nombre total de tests : 16
+<a id="__codelineno-48-26" name="__codelineno-48-26"></a>     Réussi(s) : 16
+<a id="__codelineno-48-27" name="__codelineno-48-27"></a> Durée totale : 0,8513 Secondes
 </code></pre></div></td></tr></table></div>
 <p>Les 16 tests ont réussi : chaque attribut <em>[DataRow]</em> compte pour un test. Nous considérons désormais les couches <em>[dao]</em> et <em>[metier]</em> comme opérationnelles. Contrairement au cours de 2008, il n&#x27;y a pas à reconstruire les DLL pour en exclure les classes de tests : les tests sont dans un projet séparé, et les bibliothèques <em>[Impots.Dao.dll]</em> et <em>[Impots.Metier.dll]</em> ne contiennent que le code des couches. La commande <strong><em>[dotnet test ImpotsV5.slnx]</em></strong>, dans le dossier de la solution, exécute les tests de tous les projets de tests de la solution.</p>
 <h3 id="645-la-couche-ui">6.4.5. <span style="color: #1f4d78">La couche <em>[ui]</em></span></h3>
@@ -3539,33 +3539,33 @@
 <span class="normal"><a href="#__codelineno-49-24">24</a></span>
 <span class="normal"><a href="#__codelineno-49-25">25</a></span>
 <span class="normal"><a href="#__codelineno-49-26">26</a></span>
-<span class="normal"><a href="#__codelineno-49-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="o">&lt;</span><span class="n">Project</span><span class="w"> </span><span class="n">Sdk</span><span class="o">=</span><span class="ss">"Microsoft.NET.Sdk"</span><span class="o">&gt;</span>
+<span class="normal"><a href="#__codelineno-49-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-49-2" name="__codelineno-49-2"></a>
-<a id="__codelineno-49-3" name="__codelineno-49-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-49-4" name="__codelineno-49-4"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">OutputType</span><span class="o">&gt;</span><span class="n">Exe</span><span class="o">&lt;/</span><span class="n">OutputType</span><span class="o">&gt;</span>
-<a id="__codelineno-49-5" name="__codelineno-49-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">TargetFramework</span><span class="o">&gt;</span><span class="n">net10</span><span class="p">.</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">TargetFramework</span><span class="o">&gt;</span>
-<a id="__codelineno-49-6" name="__codelineno-49-6"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="n">ImplicitUsings</span><span class="o">&gt;</span>
-<a id="__codelineno-49-7" name="__codelineno-49-7"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">Nullable</span><span class="o">&gt;</span><span class="n">enable</span><span class="o">&lt;/</span><span class="k">Nullable</span><span class="o">&gt;</span>
-<a id="__codelineno-49-8" name="__codelineno-49-8"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">PropertyGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4"></a><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-49-7" name="__codelineno-49-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-49-8" name="__codelineno-49-8"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-49-9" name="__codelineno-49-9"></a>
-<a id="__codelineno-49-10" name="__codelineno-49-10"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-49-11" name="__codelineno-49-11"></a><span class="w">    </span><span class="o">&lt;!</span><span class="c1">-- les couches utilisées --&gt;</span>
-<a id="__codelineno-49-12" name="__codelineno-49-12"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ProjectReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="ss">"../Impots.Dao/Impots.Dao.csproj"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-49-13" name="__codelineno-49-13"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">ProjectReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="ss">"../Impots.Metier/Impots.Metier.csproj"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-49-14" name="__codelineno-49-14"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-49-10" name="__codelineno-49-10"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-49-11" name="__codelineno-49-11"></a><span class="w">    </span><span class="cm">&lt;!-- les couches utilisées --&gt;</span>
+<a id="__codelineno-49-12" name="__codelineno-49-12"></a><span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"../Impots.Dao/Impots.Dao.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-49-13" name="__codelineno-49-13"></a><span class="w">    </span><span class="nt">&lt;ProjectReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"../Impots.Metier/Impots.Metier.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-49-14" name="__codelineno-49-14"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-49-15" name="__codelineno-49-15"></a>
-<a id="__codelineno-49-16" name="__codelineno-49-16"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-49-17" name="__codelineno-49-17"></a><span class="w">    </span><span class="o">&lt;!</span><span class="c1">-- conteneur d'injection de dépendances et lecture d'un fichier de configuration JSON --&gt;</span>
-<a id="__codelineno-49-18" name="__codelineno-49-18"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="ss">"Microsoft.Extensions.DependencyInjection"</span><span class="w"> </span><span class="k">Version</span><span class="o">=</span><span class="ss">"10.0.12"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-49-19" name="__codelineno-49-19"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">PackageReference</span><span class="w"> </span><span class="n">Include</span><span class="o">=</span><span class="ss">"Microsoft.Extensions.Configuration.Json"</span><span class="w"> </span><span class="k">Version</span><span class="o">=</span><span class="ss">"10.0.12"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-49-20" name="__codelineno-49-20"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-49-16" name="__codelineno-49-16"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-49-17" name="__codelineno-49-17"></a><span class="w">    </span><span class="cm">&lt;!-- conteneur d'injection de dépendances et lecture d'un fichier de configuration JSON --&gt;</span>
+<a id="__codelineno-49-18" name="__codelineno-49-18"></a><span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.Extensions.DependencyInjection"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"10.0.12"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-49-19" name="__codelineno-49-19"></a><span class="w">    </span><span class="nt">&lt;PackageReference</span><span class="w"> </span><span class="na">Include=</span><span class="s">"Microsoft.Extensions.Configuration.Json"</span><span class="w"> </span><span class="na">Version=</span><span class="s">"10.0.12"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-49-20" name="__codelineno-49-20"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-49-21" name="__codelineno-49-21"></a>
-<a id="__codelineno-49-22" name="__codelineno-49-22"></a><span class="w">  </span><span class="o">&lt;</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
-<a id="__codelineno-49-23" name="__codelineno-49-23"></a><span class="w">    </span><span class="o">&lt;!</span><span class="c1">-- les fichiers de configuration sont recopiés à côté de l'exécutable --&gt;</span>
-<a id="__codelineno-49-24" name="__codelineno-49-24"></a><span class="w">    </span><span class="o">&lt;</span><span class="k">None</span><span class="w"> </span><span class="k">Update</span><span class="o">=</span><span class="ss">"appsettings*.json"</span><span class="w"> </span><span class="n">CopyToOutputDirectory</span><span class="o">=</span><span class="ss">"PreserveNewest"</span><span class="w"> </span><span class="o">/&gt;</span>
-<a id="__codelineno-49-25" name="__codelineno-49-25"></a><span class="w">  </span><span class="o">&lt;/</span><span class="n">ItemGroup</span><span class="o">&gt;</span>
+<a id="__codelineno-49-22" name="__codelineno-49-22"></a><span class="w">  </span><span class="nt">&lt;ItemGroup&gt;</span>
+<a id="__codelineno-49-23" name="__codelineno-49-23"></a><span class="w">    </span><span class="cm">&lt;!-- les fichiers de configuration sont recopiés à côté de l'exécutable --&gt;</span>
+<a id="__codelineno-49-24" name="__codelineno-49-24"></a><span class="w">    </span><span class="nt">&lt;None</span><span class="w"> </span><span class="na">Update=</span><span class="s">"appsettings*.json"</span><span class="w"> </span><span class="na">CopyToOutputDirectory=</span><span class="s">"PreserveNewest"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-49-25" name="__codelineno-49-25"></a><span class="w">  </span><span class="nt">&lt;/ItemGroup&gt;</span>
 <a id="__codelineno-49-26" name="__codelineno-49-26"></a>
-<a id="__codelineno-49-27" name="__codelineno-49-27"></a><span class="o">&lt;/</span><span class="n">Project</span><span class="o">&gt;</span>
+<a id="__codelineno-49-27" name="__codelineno-49-27"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 4 : le projet produit un exécutable ;</li>
@@ -3607,8 +3607,8 @@
 <h3 id="646-lintegration-des-couches-par-injection-de-dependances">6.4.6. <span style="color: #1f4d78">L&#x27;intégration des couches par injection de dépendances</span></h3>
 <p>Dans la version 4, le programme principal créait les couches <em>[dao]</em> et <em>[metier]</em> en nommant leurs classes d&#x27;implémentation :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span>
-<span class="normal"><a href="#__codelineno-51-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="n">IImpotDao</span><span class="w"> </span><span class="n">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"hardwired"</span><span class="w"> </span><span class="err">? new HardwiredImpot() : new FileImpot(source);</span>
-<a id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="n">metier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ImpotMetier</span><span class="p">(</span><span class="n">dao</span><span class="p">)</span><span class="err">;</span>
+<span class="normal"><a href="#__codelineno-51-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="n">IImpotDao</span><span class="w"> </span><span class="n">dao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">"hardwired"</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HardwiredImpot</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileImpot</span><span class="p">(</span><span class="n">source</span><span class="p">);</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="n">metier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ImpotMetier</span><span class="p">(</span><span class="n">dao</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <p>En dehors de ces lignes, rien ne change dans l&#x27;application quand l&#x27;implémentation d&#x27;une couche change, puisque chaque couche communique avec la suivante au travers d&#x27;une interface. On peut aller plus loin dans l&#x27;indépendance des couches en confiant leur création à un conteneur d&#x27;injection de dépendances et en plaçant le choix de l&#x27;implémentation de la couche <em>[dao]</em> dans un fichier de configuration. Changer l&#x27;implémentation de cette couche revient alors à modifier ce fichier, sans recompiler l&#x27;application.</p>
 <p><img src="images/10000000000004B00000014018FEAE71.png" width="605" height="161" style="width:16cm;height:4.267cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004B00000014018FEAE71.png" /></p>
@@ -3620,12 +3620,12 @@
 <span class="normal"><a href="#__codelineno-52-3">3</a></span>
 <span class="normal"><a href="#__codelineno-52-4">4</a></span>
 <span class="normal"><a href="#__codelineno-52-5">5</a></span>
-<span class="normal"><a href="#__codelineno-52-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1"></a>{
-<a id="__codelineno-52-2" name="__codelineno-52-2"></a>  "Dao": {
-<a id="__codelineno-52-3" name="__codelineno-52-3"></a>    "Implementation": "FileImpot",
-<a id="__codelineno-52-4" name="__codelineno-52-4"></a>    "Fichier": "DataImpot.txt"
-<a id="__codelineno-52-5" name="__codelineno-52-5"></a>  }
-<a id="__codelineno-52-6" name="__codelineno-52-6"></a>}
+<span class="normal"><a href="#__codelineno-52-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1"></a><span class="p">{</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2"></a><span class="w">  </span><span class="nt">"Dao"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-52-3" name="__codelineno-52-3"></a><span class="w">    </span><span class="nt">"Implementation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileImpot"</span><span class="p">,</span>
+<a id="__codelineno-52-4" name="__codelineno-52-4"></a><span class="w">    </span><span class="nt">"Fichier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DataImpot.txt"</span>
+<a id="__codelineno-52-5" name="__codelineno-52-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-52-6" name="__codelineno-52-6"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 2 : une section <em>[Dao]</em> regroupe la configuration de la couche <em>[dao]</em> ;</li>
@@ -3635,9 +3635,9 @@
 <p><em>[appsettings.json]</em> est le nom habituel du fichier de configuration des applications .NET, notamment des applications ASP.NET Core. Il remplace le fichier XML <em>[App.config]</em> du .NET Framework, qu&#x27;exploitait Spring.NET dans le cours de 2008. Le projet contient trois autres fichiers de configuration, que le programme utilise si on lui passe leur nom en argument :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-53-1">1</a></span>
 <span class="normal"><a href="#__codelineno-53-2">2</a></span>
-<span class="normal"><a href="#__codelineno-53-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1"></a><span class="n">appsettings</span><span class="o">-</span><span class="n">json</span><span class="p">.</span><span class="n">json</span><span class="w">      </span><span class="p">:</span><span class="w"> </span><span class="s2">"Implementation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JsonImpot"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Fichier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DataImpot.json"</span>
-<a id="__codelineno-53-2" name="__codelineno-53-2"></a><span class="n">appsettings</span><span class="o">-</span><span class="n">hardwired</span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Implementation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HardwiredImpot"</span>
-<a id="__codelineno-53-3" name="__codelineno-53-3"></a><span class="n">appsettings</span><span class="o">-</span><span class="n">erreur</span><span class="p">.</span><span class="n">json</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"Implementation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FileImpot"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Fichier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DataImpotInexistant.txt"</span>
+<span class="normal"><a href="#__codelineno-53-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1"></a>appsettings-json.json      : "Implementation": "JsonImpot", "Fichier": "DataImpot.json"
+<a id="__codelineno-53-2" name="__codelineno-53-2"></a>appsettings-hardwired.json : "Implementation": "HardwiredImpot"
+<a id="__codelineno-53-3" name="__codelineno-53-3"></a>appsettings-erreur.json    : "Implementation": "FileImpot", "Fichier": "DataImpotInexistant.txt"
 </code></pre></div></td></tr></table></div>
 <h4 id="6462-le-programme-principal">6.4.6.2. <span style="color: #2e74b5">Le programme principal</span></h4>
 <p>Le programme principal <em>[Program.cs]</em> du projet <em>[Impots.Ui]</em> est le suivant :</p>
@@ -3689,55 +3689,55 @@
 <span class="normal"><a href="#__codelineno-54-46">46</a></span>
 <span class="normal"><a href="#__codelineno-54-47">47</a></span>
 <span class="normal"><a href="#__codelineno-54-48">48</a></span>
-<span class="normal"><a href="#__codelineno-54-49">49</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="n">using</span><span class="w"> </span><span class="n">Dao</span><span class="err">;</span>
-<a id="__codelineno-54-2" name="__codelineno-54-2"></a><span class="n">using</span><span class="w"> </span><span class="n">Entites</span><span class="err">;</span>
-<a id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="n">using</span><span class="w"> </span><span class="n">Metier</span><span class="err">;</span>
-<a id="__codelineno-54-4" name="__codelineno-54-4"></a><span class="n">using</span><span class="w"> </span><span class="n">Microsoft</span><span class="p">.</span><span class="n">Extensions</span><span class="p">.</span><span class="n">Configuration</span><span class="err">;</span>
-<a id="__codelineno-54-5" name="__codelineno-54-5"></a><span class="n">using</span><span class="w"> </span><span class="n">Microsoft</span><span class="p">.</span><span class="n">Extensions</span><span class="p">.</span><span class="n">DependencyInjection</span><span class="err">;</span>
-<a id="__codelineno-54-6" name="__codelineno-54-6"></a><span class="n">using</span><span class="w"> </span><span class="n">Ui</span><span class="err">;</span>
+<span class="normal"><a href="#__codelineno-54-49">49</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">Dao</span><span class="p">;</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">Entites</span><span class="p">;</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">Metier</span><span class="p">;</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4"></a><span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.Configuration</span><span class="p">;</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5"></a><span class="k">using</span><span class="w"> </span><span class="nn">Microsoft.Extensions.DependencyInjection</span><span class="p">;</span>
+<a id="__codelineno-54-6" name="__codelineno-54-6"></a><span class="k">using</span><span class="w"> </span><span class="nn">Ui</span><span class="p">;</span>
 <a id="__codelineno-54-7" name="__codelineno-54-7"></a>
-<a id="__codelineno-54-8" name="__codelineno-54-8"></a><span class="o">//</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">configuration</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">appsettings</span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">d</span><span class="err">éfaut, ou celui passé en argument</span>
-<a id="__codelineno-54-9" name="__codelineno-54-9"></a><span class="nb">string</span><span class="w"> </span><span class="n">fichierConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="err">? args[0] : "appsettings.json";</span>
+<a id="__codelineno-54-8" name="__codelineno-54-8"></a><span class="c1">// le fichier de configuration : appsettings.json par défaut, ou celui passé en argument</span>
+<a id="__codelineno-54-9" name="__codelineno-54-9"></a><span class="kt">string</span><span class="w"> </span><span class="n">fichierConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">"appsettings.json"</span><span class="p">;</span>
 <a id="__codelineno-54-10" name="__codelineno-54-10"></a>
-<a id="__codelineno-54-11" name="__codelineno-54-11"></a><span class="o">//</span><span class="w"> </span><span class="n">int</span><span class="err">égration des couches</span>
-<a id="__codelineno-54-12" name="__codelineno-54-12"></a><span class="n">IImpotMetier</span><span class="w"> </span><span class="n">metier</span><span class="err">;</span>
-<a id="__codelineno-54-13" name="__codelineno-54-13"></a><span class="n">try</span>
-<a id="__codelineno-54-14" name="__codelineno-54-14"></a><span class="err">{</span>
-<a id="__codelineno-54-15" name="__codelineno-54-15"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">lecture</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">configuration</span><span class="p">,</span><span class="w"> </span><span class="err">à côté de l'exécutable</span>
+<a id="__codelineno-54-11" name="__codelineno-54-11"></a><span class="c1">// intégration des couches</span>
+<a id="__codelineno-54-12" name="__codelineno-54-12"></a><span class="n">IImpotMetier</span><span class="w"> </span><span class="n">metier</span><span class="p">;</span>
+<a id="__codelineno-54-13" name="__codelineno-54-13"></a><span class="k">try</span>
+<a id="__codelineno-54-14" name="__codelineno-54-14"></a><span class="p">{</span>
+<a id="__codelineno-54-15" name="__codelineno-54-15"></a><span class="w">    </span><span class="c1">// lecture de la configuration, à côté de l'exécutable</span>
 <a id="__codelineno-54-16" name="__codelineno-54-16"></a><span class="w">    </span><span class="n">IConfiguration</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConfigurationBuilder</span><span class="p">()</span>
 <a id="__codelineno-54-17" name="__codelineno-54-17"></a><span class="w">        </span><span class="p">.</span><span class="n">SetBasePath</span><span class="p">(</span><span class="n">AppContext</span><span class="p">.</span><span class="n">BaseDirectory</span><span class="p">)</span>
-<a id="__codelineno-54-18" name="__codelineno-54-18"></a><span class="w">        </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="n">fichierConfig</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p">)</span>
-<a id="__codelineno-54-19" name="__codelineno-54-19"></a><span class="w">        </span><span class="p">.</span><span class="n">Build</span><span class="p">()</span><span class="err">;</span>
-<a id="__codelineno-54-20" name="__codelineno-54-20"></a><span class="w">    </span><span class="nb">string</span><span class="w"> </span><span class="n">implementation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="err">["Dao:Implementation"] ?? "HardwiredImpot";</span>
-<a id="__codelineno-54-21" name="__codelineno-54-21"></a><span class="w">    </span><span class="nb">string</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="err">["Dao:Fichier"] ?? "";</span>
+<a id="__codelineno-54-18" name="__codelineno-54-18"></a><span class="w">        </span><span class="p">.</span><span class="n">AddJsonFile</span><span class="p">(</span><span class="n">fichierConfig</span><span class="p">,</span><span class="w"> </span><span class="n">optional</span><span class="p">:</span><span class="w"> </span><span class="k">false</span><span class="p">)</span>
+<a id="__codelineno-54-19" name="__codelineno-54-19"></a><span class="w">        </span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
+<a id="__codelineno-54-20" name="__codelineno-54-20"></a><span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">implementation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"Dao:Implementation"</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">"HardwiredImpot"</span><span class="p">;</span>
+<a id="__codelineno-54-21" name="__codelineno-54-21"></a><span class="w">    </span><span class="kt">string</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">[</span><span class="s">"Dao:Fichier"</span><span class="p">]</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
 <a id="__codelineno-54-22" name="__codelineno-54-22"></a>
-<a id="__codelineno-54-23" name="__codelineno-54-23"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">enregistrement</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">couches</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">conteneur</span>
-<a id="__codelineno-54-24" name="__codelineno-54-24"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServiceCollection</span><span class="p">()</span><span class="err">;</span>
-<a id="__codelineno-54-25" name="__codelineno-54-25"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">couche</span><span class="w"> </span><span class="err">[dao] : l'implémentation est choisie par la configuration</span>
-<a id="__codelineno-54-26" name="__codelineno-54-26"></a><span class="w">    </span><span class="n">services</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">IImpotDao</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">implementation</span><span class="w"> </span><span class="n">switch</span>
-<a id="__codelineno-54-27" name="__codelineno-54-27"></a><span class="w">    </span><span class="err">{</span>
-<a id="__codelineno-54-28" name="__codelineno-54-28"></a><span class="w">        </span><span class="s2">"HardwiredImpot"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HardwiredImpot</span><span class="p">(),</span>
-<a id="__codelineno-54-29" name="__codelineno-54-29"></a><span class="w">        </span><span class="s2">"FileImpot"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileImpot</span><span class="p">(</span><span class="n">fichier</span><span class="p">),</span>
-<a id="__codelineno-54-30" name="__codelineno-54-30"></a><span class="w">        </span><span class="s2">"JsonImpot"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JsonImpot</span><span class="p">(</span><span class="n">fichier</span><span class="p">),</span>
-<a id="__codelineno-54-31" name="__codelineno-54-31"></a><span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ImpotException</span><span class="p">(</span><span class="o">$</span><span class="s2">"Implémentation [{implementation}] de la couche [dao] inconnue"</span><span class="p">)</span>
-<a id="__codelineno-54-32" name="__codelineno-54-32"></a><span class="w">    </span><span class="err">});</span>
-<a id="__codelineno-54-33" name="__codelineno-54-33"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">couche</span><span class="w"> </span><span class="err">[metier] : le conteneur lui passera la couche [dao]</span>
-<a id="__codelineno-54-34" name="__codelineno-54-34"></a><span class="w">    </span><span class="n">services</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">IImpotMetier</span><span class="p">,</span><span class="w"> </span><span class="n">ImpotMetier</span><span class="o">&gt;</span><span class="p">()</span><span class="err">;</span>
+<a id="__codelineno-54-23" name="__codelineno-54-23"></a><span class="w">    </span><span class="c1">// enregistrement des couches dans le conteneur</span>
+<a id="__codelineno-54-24" name="__codelineno-54-24"></a><span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">services</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ServiceCollection</span><span class="p">();</span>
+<a id="__codelineno-54-25" name="__codelineno-54-25"></a><span class="w">    </span><span class="c1">// la couche [dao] : l'implémentation est choisie par la configuration</span>
+<a id="__codelineno-54-26" name="__codelineno-54-26"></a><span class="w">    </span><span class="n">services</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">IImpotDao</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">implementation</span><span class="w"> </span><span class="k">switch</span>
+<a id="__codelineno-54-27" name="__codelineno-54-27"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-54-28" name="__codelineno-54-28"></a><span class="w">        </span><span class="s">"HardwiredImpot"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">HardwiredImpot</span><span class="p">(),</span>
+<a id="__codelineno-54-29" name="__codelineno-54-29"></a><span class="w">        </span><span class="s">"FileImpot"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileImpot</span><span class="p">(</span><span class="n">fichier</span><span class="p">),</span>
+<a id="__codelineno-54-30" name="__codelineno-54-30"></a><span class="w">        </span><span class="s">"JsonImpot"</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JsonImpot</span><span class="p">(</span><span class="n">fichier</span><span class="p">),</span>
+<a id="__codelineno-54-31" name="__codelineno-54-31"></a><span class="w">        </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ImpotException</span><span class="p">(</span><span class="s">$"Implémentation [{implementation}] de la couche [dao] inconnue"</span><span class="p">)</span>
+<a id="__codelineno-54-32" name="__codelineno-54-32"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-54-33" name="__codelineno-54-33"></a><span class="w">    </span><span class="c1">// la couche [metier] : le conteneur lui passera la couche [dao]</span>
+<a id="__codelineno-54-34" name="__codelineno-54-34"></a><span class="w">    </span><span class="n">services</span><span class="p">.</span><span class="n">AddSingleton</span><span class="o">&lt;</span><span class="n">IImpotMetier</span><span class="p">,</span><span class="w"> </span><span class="n">ImpotMetier</span><span class="o">&gt;</span><span class="p">();</span>
 <a id="__codelineno-54-35" name="__codelineno-54-35"></a>
-<a id="__codelineno-54-36" name="__codelineno-54-36"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">cr</span><span class="err">éation du conteneur, puis de la couche [metier] (et donc de la couche [dao])</span>
-<a id="__codelineno-54-37" name="__codelineno-54-37"></a><span class="w">    </span><span class="n">ServiceProvider</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">services</span><span class="p">.</span><span class="n">BuildServiceProvider</span><span class="p">()</span><span class="err">;</span>
-<a id="__codelineno-54-38" name="__codelineno-54-38"></a><span class="w">    </span><span class="n">metier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">provider</span><span class="p">.</span><span class="n">GetRequiredService</span><span class="o">&lt;</span><span class="n">IImpotMetier</span><span class="o">&gt;</span><span class="p">()</span><span class="err">;</span>
-<a id="__codelineno-54-39" name="__codelineno-54-39"></a><span class="err">}</span>
-<a id="__codelineno-54-40" name="__codelineno-54-40"></a><span class="n">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
-<a id="__codelineno-54-41" name="__codelineno-54-41"></a><span class="err">{</span>
-<a id="__codelineno-54-42" name="__codelineno-54-42"></a><span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">affichage</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">l</span><span class="c1">'erreur et arrêt du programme</span>
-<a id="__codelineno-54-43" name="__codelineno-54-43"></a><span class="w">    </span><span class="n">Dialogue</span><span class="p">.</span><span class="n">AfficherErreur</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="err">;</span>
-<a id="__codelineno-54-44" name="__codelineno-54-44"></a><span class="w">    </span><span class="n">return</span><span class="w"> </span><span class="mi">1</span><span class="err">;</span>
-<a id="__codelineno-54-45" name="__codelineno-54-45"></a><span class="err">}</span>
+<a id="__codelineno-54-36" name="__codelineno-54-36"></a><span class="w">    </span><span class="c1">// création du conteneur, puis de la couche [metier] (et donc de la couche [dao])</span>
+<a id="__codelineno-54-37" name="__codelineno-54-37"></a><span class="w">    </span><span class="n">ServiceProvider</span><span class="w"> </span><span class="n">provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">services</span><span class="p">.</span><span class="n">BuildServiceProvider</span><span class="p">();</span>
+<a id="__codelineno-54-38" name="__codelineno-54-38"></a><span class="w">    </span><span class="n">metier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">provider</span><span class="p">.</span><span class="n">GetRequiredService</span><span class="o">&lt;</span><span class="n">IImpotMetier</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-54-39" name="__codelineno-54-39"></a><span class="p">}</span>
+<a id="__codelineno-54-40" name="__codelineno-54-40"></a><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span>
+<a id="__codelineno-54-41" name="__codelineno-54-41"></a><span class="p">{</span>
+<a id="__codelineno-54-42" name="__codelineno-54-42"></a><span class="w">    </span><span class="c1">// affichage de l'erreur et arrêt du programme</span>
+<a id="__codelineno-54-43" name="__codelineno-54-43"></a><span class="w">    </span><span class="n">Dialogue</span><span class="p">.</span><span class="n">AfficherErreur</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<a id="__codelineno-54-44" name="__codelineno-54-44"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-54-45" name="__codelineno-54-45"></a><span class="p">}</span>
 <a id="__codelineno-54-46" name="__codelineno-54-46"></a>
-<a id="__codelineno-54-47" name="__codelineno-54-47"></a><span class="o">//</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">dialogue</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="c1">'utilisateur</span>
-<a id="__codelineno-54-48" name="__codelineno-54-48"></a><span class="n">Dialogue</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">metier</span><span class="p">)</span><span class="err">;</span>
-<a id="__codelineno-54-49" name="__codelineno-54-49"></a><span class="n">return</span><span class="w"> </span><span class="mi">0</span><span class="err">;</span>
+<a id="__codelineno-54-47" name="__codelineno-54-47"></a><span class="c1">// le dialogue avec l'utilisateur</span>
+<a id="__codelineno-54-48" name="__codelineno-54-48"></a><span class="n">Dialogue</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">metier</span><span class="p">);</span>
+<a id="__codelineno-54-49" name="__codelineno-54-49"></a><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 9 : le nom du fichier de configuration : <em>[appsettings.json]</em> par défaut, ou celui passé en argument ;</li>

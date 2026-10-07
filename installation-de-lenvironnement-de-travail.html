@@ -1027,7 +1027,7 @@
 </code></pre></div></td></tr></table></div>
 <p>et exécutons-le :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">&gt; </span><span class="ge">dotnet run hello.cs</span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>&gt; dotnet run hello.cs
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>1er essai avec C# 14 et .NET 10
 </code></pre></div></td></tr></table></div>
 <p>Commentaires :</p>
@@ -1039,9 +1039,9 @@
 <p>Les applications fichier unique conviennent aux petits programmes, et nous les utiliserons pour la plupart des exemples. Quelques directives, placées en tête du fichier, permettent de les compléter sans fichier de projet :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="err">#</span><span class="p">:</span><span class="kn">package</span><span class="w"> </span><span class="nn">MySqlConnector</span><span class="err">@</span><span class="mf">2.4.0</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="err">#</span><span class="p">:</span><span class="n">property</span><span class="w"> </span><span class="n">PublishAot</span><span class="o">=</span><span class="kc">false</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="err">#</span><span class="p">:</span><span class="n">sdk</span><span class="w"> </span><span class="n">Microsoft</span><span class="p">.</span><span class="na">NET</span><span class="p">.</span><span class="na">Sdk</span><span class="p">.</span><span class="na">Web</span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="err">#</span><span class="p">:</span><span class="n">package</span><span class="w"> </span><span class="n">MySqlConnector</span><span class="err">@</span><span class="mf">2.4.0</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="err">#</span><span class="p">:</span><span class="n">property</span><span class="w"> </span><span class="n">PublishAot</span><span class="o">=</span><span class="k">false</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="err">#</span><span class="p">:</span><span class="n">sdk</span><span class="w"> </span><span class="n">Microsoft</span><span class="p">.</span><span class="n">NET</span><span class="p">.</span><span class="n">Sdk</span><span class="p">.</span><span class="n">Web</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>la directive <em>[#:package]</em> ajoute une bibliothèque NuGet (chapitre 10) ;</li>
@@ -1074,19 +1074,19 @@
 <span class="normal"><a href="#__codelineno-8-10">10</a></span>
 <span class="normal"><a href="#__codelineno-8-11">11</a></span>
 <span class="normal"><a href="#__codelineno-8-12">12</a></span>
-<span class="normal"><a href="#__codelineno-8-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+<span class="normal"><a href="#__codelineno-8-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a>  &lt;PropertyGroup&gt;
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    &lt;OutputType&gt;Exe&lt;/OutputType&gt;
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    &lt;Nullable&gt;enable&lt;/Nullable&gt;
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a>    &lt;PublishAot&gt;true&lt;/PublishAot&gt;
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a>    &lt;PackAsTool&gt;true&lt;/PackAsTool&gt;
-<a id="__codelineno-8-10" name="__codelineno-8-10"></a>    &lt;UserSecretsId&gt;hello-7b9b5da29436665281cfbf4b23ebf4fed6297358227418ac7d456d2e18d162bf&lt;/UserSecretsId&gt;
-<a id="__codelineno-8-11" name="__codelineno-8-11"></a>  &lt;/PropertyGroup&gt;
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="nt">&lt;PublishAot&gt;</span>true<span class="nt">&lt;/PublishAot&gt;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="nt">&lt;PackAsTool&gt;</span>true<span class="nt">&lt;/PackAsTool&gt;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">    </span><span class="nt">&lt;UserSecretsId&gt;</span>hello-7b9b5da29436665281cfbf4b23ebf4fed6297358227418ac7d456d2e18d162bf<span class="nt">&lt;/UserSecretsId&gt;</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-8-12" name="__codelineno-8-12"></a>
-<a id="__codelineno-8-13" name="__codelineno-8-13"></a>&lt;/Project&gt;
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>Le fichier de projet reprend les propriétés implicites des applications fichier unique (par exemple <em>[PublishAot]</em>, qui prépare une compilation anticipée en code natif). On peut retirer celles qui ne servent pas. Nous allons maintenant voir les projets plus en détail.</p>
 <h2 id="24-un-projet-console">2.4. <span style="color: #2e74b5">Un projet console</span></h2>
@@ -1118,16 +1118,16 @@
 <span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-10-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+<span class="normal"><a href="#__codelineno-10-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a>  &lt;PropertyGroup&gt;
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    &lt;OutputType&gt;Exe&lt;/OutputType&gt;
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a>    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a>    &lt;Nullable&gt;enable&lt;/Nullable&gt;
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a>  &lt;/PropertyGroup&gt;
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9"></a>
-<a id="__codelineno-10-10" name="__codelineno-10-10"></a>&lt;/Project&gt;
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 1 : le projet utilise le SDK <em>[Microsoft.NET.Sdk]</em>, celui des applications console et des bibliothèques ;</li>
@@ -1189,12 +1189,12 @@
 </ul>
 <p>On peut exécuter le lanceur directement :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">&gt; </span><span class="ge">PremierProgramme</span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>&gt; PremierProgramme
 <a id="__codelineno-14-2" name="__codelineno-14-2"></a>1er essai avec un projet C# 14 / .NET 10
 </code></pre></div></td></tr></table></div>
 <p>Mais on utilise le plus souvent la commande <strong><em>[dotnet run]</em></strong>, qui compile le projet si nécessaire puis l&#x27;exécute :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
-<span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">&gt; </span><span class="ge">dotnet run</span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>&gt; dotnet run
 <a id="__codelineno-15-2" name="__codelineno-15-2"></a>1er essai avec un projet C# 14 / .NET 10
 </code></pre></div></td></tr></table></div>
 <p>Comme en 2008, il existe deux configurations de compilation : <strong>Debug</strong> (par défaut, avec les informations de débogage) et <strong>Release</strong> (optimisée, pour la mise en production), choisie par l&#x27;option <strong><em>[-c Release]</em></strong> : <strong><em>[dotnet build -c Release]</em></strong> produit le programme dans le dossier <em>[bin/Release/net10.0]</em>. Le dossier <em>[obj]</em> contient des fichiers intermédiaires de la compilation. Les dossiers <em>[bin]</em> et <em>[obj]</em> peuvent être supprimés sans risque : ils sont recréés par la compilation suivante.</p>
@@ -1230,10 +1230,10 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
 <span class="normal"><a href="#__codelineno-20-2">2</a></span>
 <span class="normal"><a href="#__codelineno-20-3">3</a></span>
-<span class="normal"><a href="#__codelineno-20-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>&lt;Solution&gt;
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a>  &lt;Project Path="DeuxMains/DeuxMains.csproj" /&gt;
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a>  &lt;Project Path="PremierProgramme/PremierProgramme.csproj" /&gt;
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a>&lt;/Solution&gt;
+<span class="normal"><a href="#__codelineno-20-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="nt">&lt;Solution&gt;</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">  </span><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Path=</span><span class="s">"DeuxMains/DeuxMains.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">  </span><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Path=</span><span class="s">"PremierProgramme/PremierProgramme.csproj"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="nt">&lt;/Solution&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>C&#x27;est un fichier XML très simple. Depuis .NET 10, c&#x27;est le format par défaut des solutions (<em>[.slnx]</em>). L&#x27;ancien format <em>[.sln]</em>, celui de Visual Studio 2008, était beaucoup plus verbeux ; on le rencontre encore dans les projets existants, et la commande <strong><em>[dotnet new sln --format sln]</em></strong> permet toujours de le créer.</p>
 <p>Dans le dossier de la solution, la commande <strong><em>[dotnet build]</em></strong> compile tous les projets de la solution. Pour exécuter un projet particulier, on se place dans son dossier avant de taper <strong><em>[dotnet run]</em></strong>, ou on utilise l&#x27;option <strong><em>[--project]</em></strong> : <strong><em>[dotnet run --project PremierProgramme]</em></strong>.</p>
@@ -1278,8 +1278,8 @@
 </code></pre></div></td></tr></table></div>
 <p>Si on compile le projet sans autre précaution, on obtient une erreur :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
-<span class="normal"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="o">&gt;</span><span class="w"> </span><span class="n">dotnet</span><span class="w"> </span><span class="n">build</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="p">...</span><span class="o">\</span><span class="n">DeuxMains</span><span class="o">\</span><span class="n">P1</span><span class="p">.</span><span class="n">cs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">17</span><span class="p">):</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">CS0017</span><span class="p">:</span><span class="w"> </span><span class="n">Plusieurs</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="n">d</span><span class="c1">'entrée sont définis dans le programme. Compilez avec l'option /main pour spécifier le type qui contient le point d'entrée. </span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>&gt; dotnet build
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>...\DeuxMains\P1.cs(5,17): error CS0017: Plusieurs points d'entrée sont définis dans le programme. Compilez avec l'option /main pour spécifier le type qui contient le point d'entrée. 
 </code></pre></div></td></tr></table></div>
 <p>Le compilateur ne sait pas quelle méthode <em>[Main]</em> est le point d&#x27;entrée du programme. On le lui indique dans le fichier de projet, par la propriété <em>[StartupObject]</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
@@ -1293,18 +1293,18 @@
 <span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-24-10">10</a></span>
 <span class="normal"><a href="#__codelineno-24-11">11</a></span>
-<span class="normal"><a href="#__codelineno-24-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+<span class="normal"><a href="#__codelineno-24-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="nt">&lt;Project</span><span class="w"> </span><span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
 <a id="__codelineno-24-2" name="__codelineno-24-2"></a>
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a>  &lt;PropertyGroup&gt;
-<a id="__codelineno-24-4" name="__codelineno-24-4"></a>    &lt;OutputType&gt;Exe&lt;/OutputType&gt;
-<a id="__codelineno-24-5" name="__codelineno-24-5"></a>    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;
-<a id="__codelineno-24-6" name="__codelineno-24-6"></a>    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
-<a id="__codelineno-24-7" name="__codelineno-24-7"></a>    &lt;Nullable&gt;enable&lt;/Nullable&gt;
-<a id="__codelineno-24-8" name="__codelineno-24-8"></a>    &lt;!-- la classe dont la méthode Main est exécutée --&gt;
-<a id="__codelineno-24-9" name="__codelineno-24-9"></a>    &lt;StartupObject&gt;DeuxMains.P2&lt;/StartupObject&gt;
-<a id="__codelineno-24-10" name="__codelineno-24-10"></a>  &lt;/PropertyGroup&gt;
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">  </span><span class="nt">&lt;PropertyGroup&gt;</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="w">    </span><span class="nt">&lt;TargetFramework&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="w">    </span><span class="nt">&lt;ImplicitUsings&gt;</span>enable<span class="nt">&lt;/ImplicitUsings&gt;</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="w">    </span><span class="nt">&lt;Nullable&gt;</span>enable<span class="nt">&lt;/Nullable&gt;</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="w">    </span><span class="cm">&lt;!-- la classe dont la méthode Main est exécutée --&gt;</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="w">    </span><span class="nt">&lt;StartupObject&gt;</span>DeuxMains.P2<span class="nt">&lt;/StartupObject&gt;</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="w">  </span><span class="nt">&lt;/PropertyGroup&gt;</span>
 <a id="__codelineno-24-11" name="__codelineno-24-11"></a>
-<a id="__codelineno-24-12" name="__codelineno-24-12"></a>&lt;/Project&gt;
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="nt">&lt;/Project&gt;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 9 : la méthode <em>[Main]</em> exécutée est celle de la classe <em>[DeuxMains.P2]</em> (le nom complet de la classe, espace de noms compris).</li>
